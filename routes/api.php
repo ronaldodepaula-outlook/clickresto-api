@@ -34,6 +34,7 @@ use App\Http\Controllers\Estoque\EstoqueController;
 use App\Http\Controllers\Estoque\EstoqueMovimentoController;
 use App\Http\Controllers\Configuracoes\ConfiguracaoController;
 use App\Http\Controllers\Relatorios\RelatorioController;
+use App\Http\Controllers\Notificacoes\NotificacaoController;
 
 Route::prefix('v1')->group(function () {
     Route::prefix('auth')->group(function () {
@@ -120,6 +121,9 @@ Route::prefix('v1')->group(function () {
         Route::apiResource('estoque-movimentos', EstoqueMovimentoController::class);
 
         Route::apiResource('configuracoes', ConfiguracaoController::class);
+        Route::apiResource('notificacoes', NotificacaoController::class);
+        Route::post('notificacoes/{id}/lida', [NotificacaoController::class, 'marcarLida']);
+        Route::post('notificacoes/ler-multiplas', [NotificacaoController::class, 'marcarLidas']);
 
         Route::get('relatorios/vendas-dia', [RelatorioController::class, 'vendasDia']);
         Route::get('relatorios/vendas-produto', [RelatorioController::class, 'vendasProduto']);

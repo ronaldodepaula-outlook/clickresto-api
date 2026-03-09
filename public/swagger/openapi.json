@@ -1218,6 +1218,111 @@
         "required": [
           "chave"
         ]
+      },
+      "Notificacao": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "readOnly": true
+          },
+          "empresa_id": {
+            "type": "integer"
+          },
+          "pedido_id": {
+            "type": "integer",
+            "nullable": true
+          },
+          "mesa_id": {
+            "type": "integer",
+            "nullable": true
+          },
+          "comanda_id": {
+            "type": "integer",
+            "nullable": true
+          },
+          "cliente_id": {
+            "type": "integer",
+            "nullable": true
+          },
+          "usuario_id": {
+            "type": "integer",
+            "nullable": true
+          },
+          "estacao_id": {
+            "type": "integer",
+            "nullable": true
+          },
+          "destino": {
+            "type": "string",
+            "enum": [
+              "cozinha",
+              "operacao",
+              "mesa",
+              "comanda"
+            ]
+          },
+          "tipo": {
+            "type": "string",
+            "enum": [
+              "pedido_status",
+              "item_status",
+              "mensagem"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "pendente",
+              "enviada",
+              "lida"
+            ]
+          },
+          "prioridade": {
+            "type": "string",
+            "enum": [
+              "baixa",
+              "normal",
+              "alta"
+            ]
+          },
+          "titulo": {
+            "type": "string",
+            "nullable": true
+          },
+          "mensagem": {
+            "type": "string",
+            "nullable": true
+          },
+          "payload": {
+            "type": "object",
+            "nullable": true
+          },
+          "enviada_em": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lida_em": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "destino",
+          "tipo"
+        ]
       }
     }
   },
@@ -6576,6 +6681,258 @@
         "responses": {
           "204": {
             "description": "Sem conteudo"
+          }
+        }
+      }
+    },
+    "/notificacoes": {
+      "get": {
+        "tags": [
+          "Notificacao"
+        ],
+        "summary": "Listar notificacoes",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Notificacao"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Notificacao"
+        ],
+        "summary": "Criar notificacoes",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Notificacao"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Criado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notificacao"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/notificacoes/{id}": {
+      "get": {
+        "tags": [
+          "Notificacao"
+        ],
+        "summary": "Obter notificacoes por id",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notificacao"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Notificacao"
+        ],
+        "summary": "Atualizar notificacoes",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Notificacao"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notificacao"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Notificacao"
+        ],
+        "summary": "Excluir notificacoes",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Sem conteudo"
+          }
+        }
+      }
+    },
+    "/notificacoes/{id}/lida": {
+      "post": {
+        "tags": [
+          "Notificacao"
+        ],
+        "summary": "Marcar notificacao como lida",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": false,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "lida_em": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/notificacoes/ler-multiplas": {
+      "post": {
+        "tags": [
+          "Notificacao"
+        ],
+        "summary": "Marcar multiplas notificacoes como lidas",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "integer"
+                    }
+                  },
+                  "lida_em": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [
+                  "ids"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
