@@ -1,0 +1,5142 @@
+{
+  "info": {
+    "name": "ClickResto - Completo",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "admin_email",
+      "value": "admin@clickresto.com"
+    },
+    {
+      "key": "admin_password",
+      "value": "admin123"
+    },
+    {
+      "key": "assinatura_id",
+      "value": "1"
+    },
+    {
+      "key": "base_url",
+      "value": "http://localhost/clickresto-api/public/api/v1"
+    },
+    {
+      "key": "caixa_id",
+      "value": "1"
+    },
+    {
+      "key": "caixa_movimento_id",
+      "value": "1"
+    },
+    {
+      "key": "categoria_id",
+      "value": "1"
+    },
+    {
+      "key": "cliente_endereco_id",
+      "value": "1"
+    },
+    {
+      "key": "cliente_id",
+      "value": "1"
+    },
+    {
+      "key": "comanda_id",
+      "value": "1"
+    },
+    {
+      "key": "configuracao_id",
+      "value": "1"
+    },
+    {
+      "key": "confirmacao_token",
+      "value": ""
+    },
+    {
+      "key": "cozinha_estacao_id",
+      "value": "1"
+    },
+    {
+      "key": "cozinha_item_id",
+      "value": "1"
+    },
+    {
+      "key": "empresa_id",
+      "value": "1"
+    },
+    {
+      "key": "entrega_id",
+      "value": "1"
+    },
+    {
+      "key": "entregador_id",
+      "value": "1"
+    },
+    {
+      "key": "estoque_id",
+      "value": "1"
+    },
+    {
+      "key": "estoque_movimento_id",
+      "value": "1"
+    },
+    {
+      "key": "forma_pagamento_id",
+      "value": "1"
+    },
+    {
+      "key": "mesa_id",
+      "value": "1"
+    },
+    {
+      "key": "pagamento_id",
+      "value": "1"
+    },
+    {
+      "key": "pedido_id",
+      "value": "1"
+    },
+    {
+      "key": "pedido_item_id",
+      "value": "1"
+    },
+    {
+      "key": "pedido_item_opcao_id",
+      "value": "1"
+    },
+    {
+      "key": "plano_id",
+      "value": "1"
+    },
+    {
+      "key": "produto_id",
+      "value": "1"
+    },
+    {
+      "key": "produto_imagem_id",
+      "value": "1"
+    },
+    {
+      "key": "produto_opcao_id",
+      "value": "1"
+    },
+    {
+      "key": "produto_opcao_item_id",
+      "value": "1"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "usuario_id",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "ClickResto - Auth",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{admin_email}}\",\n  \"password\": \"{{admin_password}}\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Refresh",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/refresh",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "refresh"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Me",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/me",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "me"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/logout",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "logout"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Public Cadastro",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/public/cadastro",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "public",
+                "cadastro"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Public Cadastro Trial",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/public/cadastro-trial",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "public",
+                "cadastro-trial"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Public Planos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/public/planos",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "public",
+                "planos"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Public Confirmar Email",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/public/confirmar-email?token={{confirmacao_token}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "public",
+                "confirmar-email"
+              ],
+              "query": [
+                {
+                  "key": "token",
+                  "value": "{{confirmacao_token}}"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "ClickResto - Caixa",
+      "item": [
+        {
+          "name": "Caixas",
+          "item": [
+            {
+              "name": "List Caixas",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/caixas",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "caixas"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Create Caixa",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/caixas",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "caixas"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get Caixa",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/caixas/{{caixa_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "caixas",
+                    "{{caixa_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Update Caixa",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/caixas/{{caixa_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "caixas",
+                    "{{caixa_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Delete Caixa",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/caixas/{{caixa_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "caixas",
+                    "{{caixa_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Abrir Caixa",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/caixas/abrir",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "caixas",
+                    "abrir"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Fechar Caixa",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/caixas/{{caixa_id}}/fechar",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "caixas",
+                    "{{caixa_id}}",
+                    "fechar"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Caixa-Movimentos",
+          "item": [
+            {
+              "name": "List Caixa-Movimentos",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/caixa-movimentos",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "caixa-movimentos"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Create Caixa-Movimento",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/caixa-movimentos",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "caixa-movimentos"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get Caixa-Movimento",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/caixa-movimentos/{{caixa_movimento_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "caixa-movimentos",
+                    "{{caixa_movimento_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Update Caixa-Movimento",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/caixa-movimentos/{{caixa_movimento_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "caixa-movimentos",
+                    "{{caixa_movimento_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Delete Caixa-Movimento",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/caixa-movimentos/{{caixa_movimento_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "caixa-movimentos",
+                    "{{caixa_movimento_id}}"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ClickResto - Clientes",
+      "item": [
+        {
+          "name": "Clientes",
+          "item": [
+            {
+              "name": "List Clientes",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/clientes",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "clientes"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Create Cliente",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/clientes",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "clientes"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get Cliente",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/clientes/{{cliente_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "clientes",
+                    "{{cliente_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Update Cliente",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/clientes/{{cliente_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "clientes",
+                    "{{cliente_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Delete Cliente",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/clientes/{{cliente_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "clientes",
+                    "{{cliente_id}}"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Cliente-Enderecos",
+          "item": [
+            {
+              "name": "List Cliente-Enderecos",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/cliente-enderecos",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "cliente-enderecos"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Create Cliente-Endereco",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/cliente-enderecos",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "cliente-enderecos"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get Cliente-Endereco",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/cliente-enderecos/{{cliente_endereco_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "cliente-enderecos",
+                    "{{cliente_endereco_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Update Cliente-Endereco",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/cliente-enderecos/{{cliente_endereco_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "cliente-enderecos",
+                    "{{cliente_endereco_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Delete Cliente-Endereco",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/cliente-enderecos/{{cliente_endereco_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "cliente-enderecos",
+                    "{{cliente_endereco_id}}"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ClickResto - Comandas",
+      "item": [
+        {
+          "name": "List Comandas",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/comandas",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "comandas"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Comanda",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/comandas",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "comandas"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Comanda",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/comandas/{{comanda_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "comandas",
+                "{{comanda_id}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Comanda",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/comandas/{{comanda_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "comandas",
+                "{{comanda_id}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Comanda",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/comandas/{{comanda_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "comandas",
+                "{{comanda_id}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "ClickResto - Configuracoes",
+      "item": [
+        {
+          "name": "List Configuracoes",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/configuracoes",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "configuracoes"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Configuracao",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/configuracoes",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "configuracoes"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Configuracao",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/configuracoes/{{configuracao_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "configuracoes",
+                "{{configuracao_id}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Configuracao",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/configuracoes/{{configuracao_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "configuracoes",
+                "{{configuracao_id}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Configuracao",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/configuracoes/{{configuracao_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "configuracoes",
+                "{{configuracao_id}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "ClickResto - Cozinha",
+      "item": [
+        {
+          "name": "Cozinha-Estacoes",
+          "item": [
+            {
+              "name": "List Cozinha-Estacoes",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/cozinha-estacoes",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "cozinha-estacoes"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Create Cozinha-Estacao",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/cozinha-estacoes",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "cozinha-estacoes"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get Cozinha-Estacao",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/cozinha-estacoes/{{cozinha_estacao_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "cozinha-estacoes",
+                    "{{cozinha_estacao_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Update Cozinha-Estacao",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/cozinha-estacoes/{{cozinha_estacao_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "cozinha-estacoes",
+                    "{{cozinha_estacao_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Delete Cozinha-Estacao",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/cozinha-estacoes/{{cozinha_estacao_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "cozinha-estacoes",
+                    "{{cozinha_estacao_id}}"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Cozinha-Itens",
+          "item": [
+            {
+              "name": "List Cozinha-Itens",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/cozinha-itens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "cozinha-itens"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Create Cozinha-Item",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/cozinha-itens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "cozinha-itens"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get Cozinha-Item",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/cozinha-itens/{{cozinha_item_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "cozinha-itens",
+                    "{{cozinha_item_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Update Cozinha-Item",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/cozinha-itens/{{cozinha_item_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "cozinha-itens",
+                    "{{cozinha_item_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Delete Cozinha-Item",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/cozinha-itens/{{cozinha_item_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "cozinha-itens",
+                    "{{cozinha_item_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Atualizar Status Cozinha-Item",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/cozinha-itens/{{cozinha_item_id}}/status",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "cozinha-itens",
+                    "{{cozinha_item_id}}",
+                    "status"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ClickResto - Delivery",
+      "item": [
+        {
+          "name": "Entregadores",
+          "item": [
+            {
+              "name": "List Entregadores",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/entregadores",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "entregadores"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Create Entregador",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/entregadores",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "entregadores"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get Entregador",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/entregadores/{{entregador_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "entregadores",
+                    "{{entregador_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Update Entregador",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/entregadores/{{entregador_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "entregadores",
+                    "{{entregador_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Delete Entregador",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/entregadores/{{entregador_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "entregadores",
+                    "{{entregador_id}}"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Entregas",
+          "item": [
+            {
+              "name": "List Entregas",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/entregas",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "entregas"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Create Entrega",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/entregas",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "entregas"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get Entrega",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/entregas/{{entrega_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "entregas",
+                    "{{entrega_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Update Entrega",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/entregas/{{entrega_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "entregas",
+                    "{{entrega_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Delete Entrega",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/entregas/{{entrega_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "entregas",
+                    "{{entrega_id}}"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ClickResto - Empresas",
+      "item": [
+        {
+          "name": "Admin",
+          "item": [
+            {
+              "name": "List All Empresas (Admin)",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/empresas/admin-list",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "empresas",
+                    "admin-list"
+                  ]
+                },
+                "description": "Lista todas as empresas com usuÃ¡rios, plano e status da assinatura (apenas para admin_master)"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Planos",
+          "item": [
+            {
+              "name": "List Planos",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/planos",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "planos"
+                  ]
+                },
+                "description": "Planos Ã© um recurso global de admin"
+              }
+            },
+            {
+              "name": "Create Plano",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/planos",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "planos"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get Plano",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/planos/{{plano_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "planos",
+                    "{{plano_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Update Plano",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/planos/{{plano_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "planos",
+                    "{{plano_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Delete Plano",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/planos/{{plano_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "planos",
+                    "{{plano_id}}"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Perfis",
+          "item": [
+            {
+              "name": "List Perfis",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/perfis",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "perfis"
+                  ]
+                },
+                "description": "Perfis Ã© um recurso global de admin"
+              }
+            },
+            {
+              "name": "Create Perfil",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/perfis",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "perfis"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get Perfil",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/perfis/{{perfil_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "perfis",
+                    "{{perfil_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Update Perfil",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/perfis/{{perfil_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "perfis",
+                    "{{perfil_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Delete Perfil",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/perfis/{{perfil_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "perfis",
+                    "{{perfil_id}}"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Permissoes",
+          "item": [
+            {
+              "name": "List Permissoes",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/permissoes",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "permissoes"
+                  ]
+                },
+                "description": "Permissoes Ã© um recurso global de admin"
+              }
+            },
+            {
+              "name": "Create Permissao",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/permissoes",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "permissoes"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get Permissao",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/permissoes/{{permissao_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "permissoes",
+                    "{{permissao_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Update Permissao",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/permissoes/{{permissao_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "permissoes",
+                    "{{permissao_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Delete Permissao",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/permissoes/{{permissao_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "permissoes",
+                    "{{permissao_id}}"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Perfil-Permissoes",
+          "item": [
+            {
+              "name": "List Perfil-Permissoes",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/perfil-permissoes",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "perfil-permissoes"
+                  ]
+                },
+                "description": "Perfil-Permissoes Ã© um recurso global de admin"
+              }
+            },
+            {
+              "name": "Create Perfil-Permissao",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/perfil-permissoes",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "perfil-permissoes"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get Perfil-Permissao",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/perfil-permissoes/{{perfil_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "perfil-permissoes",
+                    "{{perfil_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Update Perfil-Permissao",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/perfil-permissoes/{{perfil_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "perfil-permissoes",
+                    "{{perfil_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Delete Perfil-Permissao",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/perfil-permissoes/{{perfil_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "perfil-permissoes",
+                    "{{perfil_id}}"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Empresas",
+          "item": [
+            {
+              "name": "List Empresas",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/empresas",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "empresas"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Create Empresa",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/empresas",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "empresas"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get Empresa",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/empresas/{{empresa_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "empresas",
+                    "{{empresa_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Update Empresa",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/empresas/{{empresa_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "empresas",
+                    "{{empresa_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Delete Empresa",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/empresas/{{empresa_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "empresas",
+                    "{{empresa_id}}"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Assinaturas",
+          "item": [
+            {
+              "name": "List Assinaturas",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/assinaturas",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "assinaturas"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Create Assinatura",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/assinaturas",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "assinaturas"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get Assinatura",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/assinaturas/{{assinatura_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "assinaturas",
+                    "{{assinatura_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Update Assinatura",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/assinaturas/{{assinatura_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "assinaturas",
+                    "{{assinatura_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Delete Assinatura",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/assinaturas/{{assinatura_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "assinaturas",
+                    "{{assinatura_id}}"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ClickResto - Estoque",
+      "item": [
+        {
+          "name": "Estoque",
+          "item": [
+            {
+              "name": "List Estoque",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/estoque",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "estoque"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Create Estoque",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/estoque",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "estoque"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get Estoque",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/estoque/{{estoque_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "estoque",
+                    "{{estoque_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Update Estoque",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/estoque/{{estoque_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "estoque",
+                    "{{estoque_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Delete Estoque",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/estoque/{{estoque_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "estoque",
+                    "{{estoque_id}}"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Estoque-Movimentos",
+          "item": [
+            {
+              "name": "List Estoque-Movimentos",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/estoque-movimentos",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "estoque-movimentos"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Create Estoque-Movimento",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/estoque-movimentos",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "estoque-movimentos"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get Estoque-Movimento",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/estoque-movimentos/{{estoque_movimento_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "estoque-movimentos",
+                    "{{estoque_movimento_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Update Estoque-Movimento",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/estoque-movimentos/{{estoque_movimento_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "estoque-movimentos",
+                    "{{estoque_movimento_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Delete Estoque-Movimento",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/estoque-movimentos/{{estoque_movimento_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "estoque-movimentos",
+                    "{{estoque_movimento_id}}"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ClickResto - Mesas",
+      "item": [
+        {
+          "name": "List Mesas",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/mesas",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "mesas"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Mesa",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/mesas",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "mesas"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Mesa",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/mesas/{{mesa_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "mesas",
+                "{{mesa_id}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Mesa",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/mesas/{{mesa_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "mesas",
+                "{{mesa_id}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Mesa",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/mesas/{{mesa_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "mesas",
+                "{{mesa_id}}"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "ClickResto - Pagamentos",
+      "item": [
+        {
+          "name": "Formas-Pagamento",
+          "item": [
+            {
+              "name": "List Formas-Pagamento",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/formas-pagamento",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "formas-pagamento"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Create Forma-Pagamento",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/formas-pagamento",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "formas-pagamento"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get Forma-Pagamento",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/formas-pagamento/{{forma_pagamento_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "formas-pagamento",
+                    "{{forma_pagamento_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Update Forma-Pagamento",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/formas-pagamento/{{forma_pagamento_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "formas-pagamento",
+                    "{{forma_pagamento_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Delete Forma-Pagamento",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/formas-pagamento/{{forma_pagamento_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "formas-pagamento",
+                    "{{forma_pagamento_id}}"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Pagamentos",
+          "item": [
+            {
+              "name": "List Pagamentos",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/pagamentos",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "pagamentos"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Create Pagamento",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/pagamentos",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "pagamentos"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get Pagamento",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/pagamentos/{{pagamento_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "pagamentos",
+                    "{{pagamento_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Update Pagamento",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/pagamentos/{{pagamento_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "pagamentos",
+                    "{{pagamento_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Delete Pagamento",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/pagamentos/{{pagamento_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "pagamentos",
+                    "{{pagamento_id}}"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ClickResto - Pedidos",
+      "item": [
+        {
+          "name": "Pedidos",
+          "item": [
+            {
+              "name": "List Pedidos",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/pedidos",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "pedidos"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Create Pedido",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/pedidos",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "pedidos"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get Pedido",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/pedidos/{{pedido_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "pedidos",
+                    "{{pedido_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Update Pedido",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/pedidos/{{pedido_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "pedidos",
+                    "{{pedido_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Delete Pedido",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/pedidos/{{pedido_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "pedidos",
+                    "{{pedido_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Abrir Pedido",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/pedidos/abrir",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "pedidos",
+                    "abrir"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Adicionar Item ao Pedido",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/pedidos/{{pedido_id}}/itens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "pedidos",
+                    "{{pedido_id}}",
+                    "itens"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Enviar Pedido para Cozinha",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/pedidos/{{pedido_id}}/enviar-cozinha",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "pedidos",
+                    "{{pedido_id}}",
+                    "enviar-cozinha"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Atualizar Status do Pedido",
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/pedidos/{{pedido_id}}/status",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "pedidos",
+                    "{{pedido_id}}",
+                    "status"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Fechar Pedido",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/pedidos/{{pedido_id}}/fechar",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "pedidos",
+                    "{{pedido_id}}",
+                    "fechar"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Pedido-Itens",
+          "item": [
+            {
+              "name": "List Pedido-Itens",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/pedido-itens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "pedido-itens"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Create Pedido-Item",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/pedido-itens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "pedido-itens"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get Pedido-Item",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/pedido-itens/{{pedido_item_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "pedido-itens",
+                    "{{pedido_item_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Update Pedido-Item",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/pedido-itens/{{pedido_item_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "pedido-itens",
+                    "{{pedido_item_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Delete Pedido-Item",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/pedido-itens/{{pedido_item_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "pedido-itens",
+                    "{{pedido_item_id}}"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Pedido-Item-Opcoes",
+          "item": [
+            {
+              "name": "List Pedido-Item-Opcoes",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/pedido-item-opcoes",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "pedido-item-opcoes"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Create Pedido-Item-Opcao",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/pedido-item-opcoes",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "pedido-item-opcoes"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get Pedido-Item-Opcao",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/pedido-item-opcoes/{{pedido_item_opcao_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "pedido-item-opcoes",
+                    "{{pedido_item_opcao_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Update Pedido-Item-Opcao",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/pedido-item-opcoes/{{pedido_item_opcao_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "pedido-item-opcoes",
+                    "{{pedido_item_opcao_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Delete Pedido-Item-Opcao",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/pedido-item-opcoes/{{pedido_item_opcao_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "pedido-item-opcoes",
+                    "{{pedido_item_opcao_id}}"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ClickResto - Produtos",
+      "item": [
+        {
+          "name": "Categorias",
+          "item": [
+            {
+              "name": "List Categorias",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/categorias",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "categorias"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Create Categoria",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/categorias",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "categorias"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get Categoria",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/categorias/{{categoria_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "categorias",
+                    "{{categoria_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Update Categoria",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/categorias/{{categoria_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "categorias",
+                    "{{categoria_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Delete Categoria",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/categorias/{{categoria_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "categorias",
+                    "{{categoria_id}}"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Produtos",
+          "item": [
+            {
+              "name": "List Produtos",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/produtos",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "produtos"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Create Produto",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/produtos",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "produtos"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get Produto",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/produtos/{{produto_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "produtos",
+                    "{{produto_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Update Produto",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/produtos/{{produto_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "produtos",
+                    "{{produto_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Delete Produto",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/produtos/{{produto_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "produtos",
+                    "{{produto_id}}"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Produto-Imagens",
+          "item": [
+            {
+              "name": "List Produto-Imagens",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/produto-imagens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "produto-imagens"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Create Produto-Imagem",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/produto-imagens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "produto-imagens"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get Produto-Imagem",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/produto-imagens/{{produto_imagem_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "produto-imagens",
+                    "{{produto_imagem_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Update Produto-Imagem",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/produto-imagens/{{produto_imagem_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "produto-imagens",
+                    "{{produto_imagem_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Delete Produto-Imagem",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/produto-imagens/{{produto_imagem_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "produto-imagens",
+                    "{{produto_imagem_id}}"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Produto-Opcoes",
+          "item": [
+            {
+              "name": "List Produto-Opcoes",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/produto-opcoes",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "produto-opcoes"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Create Produto-Opcao",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/produto-opcoes",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "produto-opcoes"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get Produto-Opcao",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/produto-opcoes/{{produto_opcao_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "produto-opcoes",
+                    "{{produto_opcao_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Update Produto-Opcao",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/produto-opcoes/{{produto_opcao_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "produto-opcoes",
+                    "{{produto_opcao_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Delete Produto-Opcao",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/produto-opcoes/{{produto_opcao_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "produto-opcoes",
+                    "{{produto_opcao_id}}"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Produto-Opcao-Itens",
+          "item": [
+            {
+              "name": "List Produto-Opcao-Itens",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/produto-opcao-itens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "produto-opcao-itens"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Create Produto-Opcao-Item",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/produto-opcao-itens",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "produto-opcao-itens"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get Produto-Opcao-Item",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/produto-opcao-itens/{{produto_opcao_item_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "produto-opcao-itens",
+                    "{{produto_opcao_item_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Update Produto-Opcao-Item",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/produto-opcao-itens/{{produto_opcao_item_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "produto-opcao-itens",
+                    "{{produto_opcao_item_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Delete Produto-Opcao-Item",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/produto-opcao-itens/{{produto_opcao_item_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "produto-opcao-itens",
+                    "{{produto_opcao_item_id}}"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "ClickResto - Relatorios",
+      "item": [
+        {
+          "name": "Vendas do Dia",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/relatorios/vendas-dia",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "relatorios",
+                "vendas-dia"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Vendas por Produto",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/relatorios/vendas-produto",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "relatorios",
+                "vendas-produto"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Vendas por Forma de Pagamento",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/relatorios/vendas-pagamento",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "relatorios",
+                "vendas-pagamento"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Ticket Medio",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/relatorios/ticket-medio",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "relatorios",
+                "ticket-medio"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Pedidos por Canal",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/relatorios/pedidos-por-canal",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "relatorios",
+                "pedidos-por-canal"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "ClickResto - Usuarios",
+      "item": [
+        {
+          "name": "Usuario-Perfis",
+          "item": [
+            {
+              "name": "List Usuario-Perfis",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/usuario-perfis",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "usuario-perfis"
+                  ]
+                },
+                "description": "Usuario-Perfis Ã© especÃ­fico de empresa"
+              }
+            },
+            {
+              "name": "Create Usuario-Perfil",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/usuario-perfis",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "usuario-perfis"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get Usuario-Perfil",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/usuario-perfis/{{usuario_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "usuario-perfis",
+                    "{{usuario_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Update Usuario-Perfil",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/usuario-perfis/{{usuario_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "usuario-perfis",
+                    "{{usuario_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Delete Usuario-Perfil",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/usuario-perfis/{{usuario_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "usuario-perfis",
+                    "{{usuario_id}}"
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Usuarios",
+          "item": [
+            {
+              "name": "List Usuarios",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/usuarios",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "usuarios"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Create Usuario",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/usuarios",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "usuarios"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Get Usuario",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/usuarios/{{usuario_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "usuarios",
+                    "{{usuario_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Update Usuario",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/usuarios/{{usuario_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "usuarios",
+                    "{{usuario_id}}"
+                  ]
+                }
+              }
+            },
+            {
+              "name": "Delete Usuario",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/usuarios/{{usuario_id}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "usuarios",
+                    "{{usuario_id}}"
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Smartphone Flow",
+      "item": [
+        {
+          "name": "Selecionar Mesas Livres",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "X-Empresa-Id",
+                "value": "{{empresa_id}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/mesas?status=livre",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "mesas"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "livre"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Criar Comanda",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "X-Empresa-Id",
+                "value": "{{empresa_id}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numero\": \"C010\",\n  \"status\": \"aberta\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/comandas",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "comandas"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Abrir Pedido",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "X-Empresa-Id",
+                "value": "{{empresa_id}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tipo\": \"mesa\",\n  \"mesa_id\": {{mesa_id}},\n  \"comanda_id\": {{comanda_id}}\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/pedidos/abrir",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pedidos",
+                "abrir"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Listar Categorias",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "X-Empresa-Id",
+                "value": "{{empresa_id}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/categorias",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "categorias"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Listar Itens por Categoria",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "X-Empresa-Id",
+                "value": "{{empresa_id}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/prod_categorias/{{categoria_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "prod_categorias",
+                "{{categoria_id}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Adicionar Item ao Pedido",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "X-Empresa-Id",
+                "value": "{{empresa_id}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"produto_id\": {{produto_id}},\n  \"quantidade\": 1,\n  \"preco\": 10.00\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/pedidos/{{pedido_id}}/itens",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pedidos",
+                "{{pedido_id}}",
+                "itens"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Adicionar Complemento (Opcao)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "X-Empresa-Id",
+                "value": "{{empresa_id}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pedido_item_id\": {{pedido_item_id}},\n  \"opcao_item_id\": {{opcao_item_id}}\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/pedido-item-opcoes",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pedido-item-opcoes"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Listar Itens do Pedido",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "X-Empresa-Id",
+                "value": "{{empresa_id}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pedido-itens?pedido_id={{pedido_id}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pedido-itens"
+              ],
+              "query": [
+                {
+                  "key": "pedido_id",
+                  "value": "{{pedido_id}}"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Listar Formas de Pagamento",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "X-Empresa-Id",
+                "value": "{{empresa_id}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/formas-pagamento",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "formas-pagamento"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Registrar Pagamento",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "X-Empresa-Id",
+                "value": "{{empresa_id}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"pedido_id\": {{pedido_id}},\n  \"forma_pagamento_id\": {{forma_pagamento_id}},\n  \"valor\": {{pagamento_valor}}\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/pagamentos",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pagamentos"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Fechar Pedido",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "X-Empresa-Id",
+                "value": "{{empresa_id}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pedidos/{{pedido_id}}/fechar",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "pedidos",
+                "{{pedido_id}}",
+                "fechar"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "info": {
+    "name": "ClickResto - Relatorios",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost/clickresto-api/public/api/v1"
+    },
+    {
+      "key": "token",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Vendas do Dia",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/relatorios/vendas-dia",
+          "host": ["{{base_url}}"],
+          "path": ["relatorios", "vendas-dia"]
+        }
+      }
+    },
+    {
+      "name": "Vendas por Produto",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/relatorios/vendas-produto",
+          "host": ["{{base_url}}"],
+          "path": ["relatorios", "vendas-produto"]
+        }
+      }
+    },
+    {
+      "name": "Vendas por Forma de Pagamento",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/relatorios/vendas-pagamento",
+          "host": ["{{base_url}}"],
+          "path": ["relatorios", "vendas-pagamento"]
+        }
+      }
+    },
+    {
+      "name": "Ticket Medio",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/relatorios/ticket-medio",
+          "host": ["{{base_url}}"],
+          "path": ["relatorios", "ticket-medio"]
+        }
+      }
+    },
+    {
+      "name": "Pedidos por Canal",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/relatorios/pedidos-por-canal",
+          "host": ["{{base_url}}"],
+          "path": ["relatorios", "pedidos-por-canal"]
+        }
+      }
+    }
+  ]
+}

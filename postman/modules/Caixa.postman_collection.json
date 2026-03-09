@@ -1,0 +1,288 @@
+{
+  "info": {
+    "name": "ClickResto - Caixa",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost/clickresto-api/public/api/v1"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "caixa_id",
+      "value": "1"
+    },
+    {
+      "key": "caixa_movimento_id",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "Caixas",
+      "item": [
+        {
+          "name": "List Caixas",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/caixas",
+              "host": ["{{base_url}}"],
+              "path": ["caixas"]
+            }
+          }
+        },
+        {
+          "name": "Create Caixa",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/caixas",
+              "host": ["{{base_url}}"],
+              "path": ["caixas"]
+            }
+          }
+        },
+        {
+          "name": "Get Caixa",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/caixas/{{caixa_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["caixas", "{{caixa_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Caixa",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/caixas/{{caixa_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["caixas", "{{caixa_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Caixa",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/caixas/{{caixa_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["caixas", "{{caixa_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Abrir Caixa",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/caixas/abrir",
+              "host": ["{{base_url}}"],
+              "path": ["caixas", "abrir"]
+            }
+          }
+        },
+        {
+          "name": "Fechar Caixa",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/caixas/{{caixa_id}}/fechar",
+              "host": ["{{base_url}}"],
+              "path": ["caixas", "{{caixa_id}}", "fechar"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Caixa-Movimentos",
+      "item": [
+        {
+          "name": "List Caixa-Movimentos",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/caixa-movimentos",
+              "host": ["{{base_url}}"],
+              "path": ["caixa-movimentos"]
+            }
+          }
+        },
+        {
+          "name": "Create Caixa-Movimento",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/caixa-movimentos",
+              "host": ["{{base_url}}"],
+              "path": ["caixa-movimentos"]
+            }
+          }
+        },
+        {
+          "name": "Get Caixa-Movimento",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/caixa-movimentos/{{caixa_movimento_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["caixa-movimentos", "{{caixa_movimento_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Caixa-Movimento",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/caixa-movimentos/{{caixa_movimento_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["caixa-movimentos", "{{caixa_movimento_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Caixa-Movimento",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/caixa-movimentos/{{caixa_movimento_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["caixa-movimentos", "{{caixa_movimento_id}}"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

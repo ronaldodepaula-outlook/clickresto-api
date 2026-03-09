@@ -1,0 +1,759 @@
+{
+  "info": {
+    "name": "ClickResto Admin",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost/clickresto-api/public/api/v1"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "empresa_id",
+      "value": "1"
+    },
+    {
+      "key": "plano_id",
+      "value": "1"
+    },
+    {
+      "key": "assinatura_id",
+      "value": "1"
+    },
+    {
+      "key": "usuario_id",
+      "value": "1"
+    },
+    {
+      "key": "perfil_id",
+      "value": "1"
+    },
+    {
+      "key": "permissao_id",
+      "value": "1"
+    },
+    {
+      "key": "confirmacao_token",
+      "value": ""
+    },
+    {
+      "key": "admin_email",
+      "value": "admin@clickresto.com"
+    },
+    {
+      "key": "admin_password",
+      "value": "admin123"
+    }
+  ],
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{base_url}}/auth/login",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"{{admin_email}}\",\n  \"senha\": \"{{admin_password}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.environment.set('token', pm.response.json().access_token);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Me",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/auth/me",
+            "body": null
+          },
+          "event": []
+        },
+        {
+          "name": "Refresh",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/auth/refresh",
+            "body": null
+          },
+          "event": []
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/auth/logout",
+            "body": null
+          },
+          "event": []
+        }
+      ]
+    },
+    {
+      "name": "Public",
+      "item": [
+        {
+          "name": "Planos ativos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/public/planos",
+            "body": null
+          },
+          "event": []
+        },
+        {
+          "name": "Cadastro trial",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "{{base_url}}/public/cadastro-trial",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"empresa\": {\n    \"nome\": \"Restaurante Exemplo\",\n    \"nome_fantasia\": \"Resto Ex\",\n    \"cnpj\": \"00.000.000/0001-00\",\n    \"telefone\": \"11999999999\",\n    \"email\": \"contato@resto.com\",\n    \"endereco\": \"Rua X, 123\",\n    \"cidade\": \"Sao Paulo\",\n    \"estado\": \"SP\"\n  },\n  \"usuario\": {\n    \"nome\": \"Admin\",\n    \"email\": \"admin@resto.com\",\n    \"senha\": \"123456\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "if (pm.response.json().confirmacao_url) { pm.environment.set('confirmacao_token', pm.response.json().confirmacao_url.split('token=')[1] || ''); }"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Confirmar email",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "{{base_url}}/public/confirmar-email?token={{confirmacao_token}}",
+            "body": null
+          },
+          "event": []
+        }
+      ]
+    },
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "Listar Planos",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/planos",
+            "body": null
+          },
+          "event": []
+        },
+        {
+          "name": "Criar Plano",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/planos",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Plano Pro\",\n  \"limite_usuarios\": 10,\n  \"limite_produtos\": 200,\n  \"valor\": 99.9,\n  \"ativo\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": []
+        },
+        {
+          "name": "Atualizar Plano",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/planos/{{plano_id}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Plano Pro Plus\",\n  \"limite_usuarios\": 20,\n  \"limite_produtos\": 300,\n  \"valor\": 149.9,\n  \"ativo\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": []
+        },
+        {
+          "name": "Excluir Plano",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/planos/{{plano_id}}",
+            "body": null
+          },
+          "event": []
+        },
+        {
+          "name": "Listar Empresas",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/empresas",
+            "body": null
+          },
+          "event": []
+        },
+        {
+          "name": "Criar Empresa",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/empresas",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Empresa Exemplo\",\n  \"nome_fantasia\": \"Empresa Ex\",\n  \"cnpj\": \"11.111.111/0001-11\",\n  \"telefone\": \"11999999999\",\n  \"email\": \"contato@empresa.com\",\n  \"endereco\": \"Rua Y, 999\",\n  \"cidade\": \"Sao Paulo\",\n  \"estado\": \"SP\",\n  \"plano_id\": \"{{plano_id}}\",\n  \"status\": \"ativo\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": []
+        },
+        {
+          "name": "Atualizar Empresa",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/empresas/{{empresa_id}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"plano_id\": \"{{plano_id}}\",\n  \"status\": \"ativo\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": []
+        },
+        {
+          "name": "Excluir Empresa",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/empresas/{{empresa_id}}",
+            "body": null
+          },
+          "event": []
+        },
+        {
+          "name": "Listar Assinaturas",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Empresa-Id",
+                "value": "{{empresa_id}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/assinaturas",
+            "body": null
+          },
+          "event": []
+        },
+        {
+          "name": "Criar Assinatura",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Empresa-Id",
+                "value": "{{empresa_id}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/assinaturas",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"plano_id\": \"{{plano_id}}\",\n  \"data_inicio\": \"2026-03-06\",\n  \"data_fim\": \"2026-06-06\",\n  \"status\": \"ativa\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": []
+        },
+        {
+          "name": "Atualizar Assinatura",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Empresa-Id",
+                "value": "{{empresa_id}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/assinaturas/{{assinatura_id}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"plano_id\": \"{{plano_id}}\",\n  \"data_inicio\": \"2026-03-06\",\n  \"data_fim\": \"2026-06-06\",\n  \"status\": \"ativa\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": []
+        },
+        {
+          "name": "Excluir Assinatura",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Empresa-Id",
+                "value": "{{empresa_id}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/assinaturas/{{assinatura_id}}",
+            "body": null
+          },
+          "event": []
+        },
+        {
+          "name": "Listar Perfis",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/perfis",
+            "body": null
+          },
+          "event": []
+        },
+        {
+          "name": "Criar Perfil",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/perfis",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"gerente\",\n  \"descricao\": \"Perfil gerente\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": []
+        },
+        {
+          "name": "Atualizar Perfil",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/perfis/{{perfil_id}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"gerente\",\n  \"descricao\": \"Perfil gerente atualizado\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": []
+        },
+        {
+          "name": "Excluir Perfil",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/perfis/{{perfil_id}}",
+            "body": null
+          },
+          "event": []
+        },
+        {
+          "name": "Listar Permissoes",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/permissoes",
+            "body": null
+          },
+          "event": []
+        },
+        {
+          "name": "Criar Permissao",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/permissoes",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"relatorios.visualizar\",\n  \"descricao\": \"Visualizar relatorios\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": []
+        },
+        {
+          "name": "Atualizar Permissao",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/permissoes/{{permissao_id}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"relatorios.visualizar\",\n  \"descricao\": \"Visualizar relatorios\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": []
+        },
+        {
+          "name": "Excluir Permissao",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/permissoes/{{permissao_id}}",
+            "body": null
+          },
+          "event": []
+        },
+        {
+          "name": "Vincular Perfil a Usuario",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/usuario-perfis",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"usuario_id\": \"{{usuario_id}}\",\n  \"perfil_id\": \"{{perfil_id}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": []
+        },
+        {
+          "name": "Vincular Permissao ao Perfil",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/perfil-permissoes",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"perfil_id\": \"{{perfil_id}}\",\n  \"permissao_id\": \"{{permissao_id}}\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": []
+        },
+        {
+          "name": "SaaS Overview",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/saas/overview",
+            "body": null
+          },
+          "event": []
+        },
+        {
+          "name": "Dashboard Operacional",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/dashboard/operational",
+            "body": null
+          },
+          "event": []
+        }
+      ]
+    },
+    {
+      "name": "Empresa (Operacional)",
+      "item": [
+        {
+          "name": "Listar Usuarios",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "X-Empresa-Id",
+                "value": "{{empresa_id}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/usuarios",
+            "body": null
+          },
+          "event": []
+        },
+        {
+          "name": "Criar Usuario",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Empresa-Id",
+                "value": "{{empresa_id}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/usuarios",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Usuario Teste\",\n  \"email\": \"usuario@empresa.com\",\n  \"senha\": \"123456\",\n  \"ativo\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": []
+        },
+        {
+          "name": "Atualizar Usuario",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "X-Empresa-Id",
+                "value": "{{empresa_id}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/usuarios/{{usuario_id}}",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Usuario Teste\",\n  \"ativo\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": []
+        },
+        {
+          "name": "Excluir Usuario",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "X-Empresa-Id",
+                "value": "{{empresa_id}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": "{{base_url}}/usuarios/{{usuario_id}}",
+            "body": null
+          },
+          "event": []
+        }
+      ]
+    }
+  ]
+}

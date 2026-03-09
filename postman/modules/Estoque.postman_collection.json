@@ -1,0 +1,238 @@
+{
+  "info": {
+    "name": "ClickResto - Estoque",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost/clickresto-api/public/api/v1"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "estoque_id",
+      "value": "1"
+    },
+    {
+      "key": "estoque_movimento_id",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "Estoque",
+      "item": [
+        {
+          "name": "List Estoque",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/estoque",
+              "host": ["{{base_url}}"],
+              "path": ["estoque"]
+            }
+          }
+        },
+        {
+          "name": "Create Estoque",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/estoque",
+              "host": ["{{base_url}}"],
+              "path": ["estoque"]
+            }
+          }
+        },
+        {
+          "name": "Get Estoque",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/estoque/{{estoque_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["estoque", "{{estoque_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Estoque",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/estoque/{{estoque_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["estoque", "{{estoque_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Estoque",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/estoque/{{estoque_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["estoque", "{{estoque_id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Estoque-Movimentos",
+      "item": [
+        {
+          "name": "List Estoque-Movimentos",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/estoque-movimentos",
+              "host": ["{{base_url}}"],
+              "path": ["estoque-movimentos"]
+            }
+          }
+        },
+        {
+          "name": "Create Estoque-Movimento",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/estoque-movimentos",
+              "host": ["{{base_url}}"],
+              "path": ["estoque-movimentos"]
+            }
+          }
+        },
+        {
+          "name": "Get Estoque-Movimento",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/estoque-movimentos/{{estoque_movimento_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["estoque-movimentos", "{{estoque_movimento_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Estoque-Movimento",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/estoque-movimentos/{{estoque_movimento_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["estoque-movimentos", "{{estoque_movimento_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Estoque-Movimento",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/estoque-movimentos/{{estoque_movimento_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["estoque-movimentos", "{{estoque_movimento_id}}"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

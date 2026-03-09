@@ -1,0 +1,473 @@
+{
+  "info": {
+    "name": "ClickResto - Pedidos",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost/clickresto-api/public/api/v1"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "pedido_id",
+      "value": "1"
+    },
+    {
+      "key": "pedido_item_id",
+      "value": "1"
+    },
+    {
+      "key": "pedido_item_opcao_id",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "Pedidos",
+      "item": [
+        {
+          "name": "List Pedidos",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pedidos",
+              "host": ["{{base_url}}"],
+              "path": ["pedidos"]
+            }
+          }
+        },
+        {
+          "name": "Create Pedido",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/pedidos",
+              "host": ["{{base_url}}"],
+              "path": ["pedidos"]
+            }
+          }
+        },
+        {
+          "name": "Get Pedido",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pedidos/{{pedido_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["pedidos", "{{pedido_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Pedido",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/pedidos/{{pedido_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["pedidos", "{{pedido_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Pedido",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pedidos/{{pedido_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["pedidos", "{{pedido_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Abrir Pedido",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/pedidos/abrir",
+              "host": ["{{base_url}}"],
+              "path": ["pedidos", "abrir"]
+            }
+          }
+        },
+        {
+          "name": "Adicionar Item ao Pedido",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/pedidos/{{pedido_id}}/itens",
+              "host": ["{{base_url}}"],
+              "path": ["pedidos", "{{pedido_id}}", "itens"]
+            }
+          }
+        },
+        {
+          "name": "Enviar Pedido para Cozinha",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/pedidos/{{pedido_id}}/enviar-cozinha",
+              "host": ["{{base_url}}"],
+              "path": ["pedidos", "{{pedido_id}}", "enviar-cozinha"]
+            }
+          }
+        },
+        {
+          "name": "Atualizar Status do Pedido",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/pedidos/{{pedido_id}}/status",
+              "host": ["{{base_url}}"],
+              "path": ["pedidos", "{{pedido_id}}", "status"]
+            }
+          }
+        },
+        {
+          "name": "Fechar Pedido",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/pedidos/{{pedido_id}}/fechar",
+              "host": ["{{base_url}}"],
+              "path": ["pedidos", "{{pedido_id}}", "fechar"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pedido-Itens",
+      "item": [
+        {
+          "name": "List Pedido-Itens",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pedido-itens",
+              "host": ["{{base_url}}"],
+              "path": ["pedido-itens"]
+            }
+          }
+        },
+        {
+          "name": "Create Pedido-Item",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/pedido-itens",
+              "host": ["{{base_url}}"],
+              "path": ["pedido-itens"]
+            }
+          }
+        },
+        {
+          "name": "Get Pedido-Item",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pedido-itens/{{pedido_item_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["pedido-itens", "{{pedido_item_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Pedido-Item",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/pedido-itens/{{pedido_item_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["pedido-itens", "{{pedido_item_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Pedido-Item",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pedido-itens/{{pedido_item_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["pedido-itens", "{{pedido_item_id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pedido-Item-Opcoes",
+      "item": [
+        {
+          "name": "List Pedido-Item-Opcoes",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pedido-item-opcoes",
+              "host": ["{{base_url}}"],
+              "path": ["pedido-item-opcoes"]
+            }
+          }
+        },
+        {
+          "name": "Create Pedido-Item-Opcao",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/pedido-item-opcoes",
+              "host": ["{{base_url}}"],
+              "path": ["pedido-item-opcoes"]
+            }
+          }
+        },
+        {
+          "name": "Get Pedido-Item-Opcao",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pedido-item-opcoes/{{pedido_item_opcao_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["pedido-item-opcoes", "{{pedido_item_opcao_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Pedido-Item-Opcao",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/pedido-item-opcoes/{{pedido_item_opcao_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["pedido-item-opcoes", "{{pedido_item_opcao_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Pedido-Item-Opcao",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pedido-item-opcoes/{{pedido_item_opcao_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["pedido-item-opcoes", "{{pedido_item_opcao_id}}"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

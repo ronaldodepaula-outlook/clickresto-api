@@ -1,0 +1,568 @@
+{
+  "info": {
+    "name": "ClickResto - Produtos",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost/clickresto-api/public/api/v1"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "categoria_id",
+      "value": "1"
+    },
+    {
+      "key": "produto_id",
+      "value": "1"
+    },
+    {
+      "key": "produto_imagem_id",
+      "value": "1"
+    },
+    {
+      "key": "produto_opcao_id",
+      "value": "1"
+    },
+    {
+      "key": "produto_opcao_item_id",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "Categorias",
+      "item": [
+        {
+          "name": "List Categorias",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/categorias",
+              "host": ["{{base_url}}"],
+              "path": ["categorias"]
+            }
+          }
+        },
+        {
+          "name": "Create Categoria",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/categorias",
+              "host": ["{{base_url}}"],
+              "path": ["categorias"]
+            }
+          }
+        },
+        {
+          "name": "Get Categoria",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/categorias/{{categoria_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["categorias", "{{categoria_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Categoria",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/categorias/{{categoria_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["categorias", "{{categoria_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Categoria",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/categorias/{{categoria_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["categorias", "{{categoria_id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Produtos",
+      "item": [
+        {
+          "name": "List Produtos",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/produtos",
+              "host": ["{{base_url}}"],
+              "path": ["produtos"]
+            }
+          }
+        },
+        {
+          "name": "Create Produto",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/produtos",
+              "host": ["{{base_url}}"],
+              "path": ["produtos"]
+            }
+          }
+        },
+        {
+          "name": "Get Produto",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/produtos/{{produto_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["produtos", "{{produto_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Produto",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/produtos/{{produto_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["produtos", "{{produto_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Produto",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/produtos/{{produto_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["produtos", "{{produto_id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Produto-Imagens",
+      "item": [
+        {
+          "name": "List Produto-Imagens",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/produto-imagens",
+              "host": ["{{base_url}}"],
+              "path": ["produto-imagens"]
+            }
+          }
+        },
+        {
+          "name": "Create Produto-Imagem",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/produto-imagens",
+              "host": ["{{base_url}}"],
+              "path": ["produto-imagens"]
+            }
+          }
+        },
+        {
+          "name": "Get Produto-Imagem",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/produto-imagens/{{produto_imagem_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["produto-imagens", "{{produto_imagem_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Produto-Imagem",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/produto-imagens/{{produto_imagem_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["produto-imagens", "{{produto_imagem_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Produto-Imagem",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/produto-imagens/{{produto_imagem_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["produto-imagens", "{{produto_imagem_id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Produto-Opcoes",
+      "item": [
+        {
+          "name": "List Produto-Opcoes",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/produto-opcoes",
+              "host": ["{{base_url}}"],
+              "path": ["produto-opcoes"]
+            }
+          }
+        },
+        {
+          "name": "Create Produto-Opcao",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/produto-opcoes",
+              "host": ["{{base_url}}"],
+              "path": ["produto-opcoes"]
+            }
+          }
+        },
+        {
+          "name": "Get Produto-Opcao",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/produto-opcoes/{{produto_opcao_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["produto-opcoes", "{{produto_opcao_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Produto-Opcao",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/produto-opcoes/{{produto_opcao_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["produto-opcoes", "{{produto_opcao_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Produto-Opcao",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/produto-opcoes/{{produto_opcao_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["produto-opcoes", "{{produto_opcao_id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Produto-Opcao-Itens",
+      "item": [
+        {
+          "name": "List Produto-Opcao-Itens",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/produto-opcao-itens",
+              "host": ["{{base_url}}"],
+              "path": ["produto-opcao-itens"]
+            }
+          }
+        },
+        {
+          "name": "Create Produto-Opcao-Item",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/produto-opcao-itens",
+              "host": ["{{base_url}}"],
+              "path": ["produto-opcao-itens"]
+            }
+          }
+        },
+        {
+          "name": "Get Produto-Opcao-Item",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/produto-opcao-itens/{{produto_opcao_item_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["produto-opcao-itens", "{{produto_opcao_item_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Produto-Opcao-Item",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/produto-opcao-itens/{{produto_opcao_item_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["produto-opcao-itens", "{{produto_opcao_item_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Produto-Opcao-Item",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/produto-opcao-itens/{{produto_opcao_item_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["produto-opcao-itens", "{{produto_opcao_item_id}}"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

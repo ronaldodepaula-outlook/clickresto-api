@@ -1,0 +1,391 @@
+{
+  "info": {
+    "name": "ClickResto - Smartphone Flow",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost/clickresto-api/public/api/v1"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "empresa_id",
+      "value": "4"
+    },
+    {
+      "key": "mesa_id",
+      "value": "1"
+    },
+    {
+      "key": "comanda_id",
+      "value": "10"
+    },
+    {
+      "key": "pedido_id",
+      "value": "3"
+    },
+    {
+      "key": "categoria_id",
+      "value": "1"
+    },
+    {
+      "key": "produto_id",
+      "value": "10"
+    },
+    {
+      "key": "pedido_item_id",
+      "value": "5"
+    },
+    {
+      "key": "opcao_item_id",
+      "value": "7"
+    },
+    {
+      "key": "forma_pagamento_id",
+      "value": "1"
+    },
+    {
+      "key": "pagamento_valor",
+      "value": "96.00"
+    }
+  ],
+  "item": [
+    {
+      "name": "Selecionar Mesas Livres",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "X-Empresa-Id",
+            "value": "{{empresa_id}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/mesas?status=livre",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "mesas"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "livre"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Criar Comanda",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "X-Empresa-Id",
+            "value": "{{empresa_id}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"numero\": \"C010\",\n  \"status\": \"aberta\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/comandas",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "comandas"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Abrir Pedido",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "X-Empresa-Id",
+            "value": "{{empresa_id}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"tipo\": \"mesa\",\n  \"mesa_id\": {{mesa_id}},\n  \"comanda_id\": {{comanda_id}}\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/pedidos/abrir",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "pedidos",
+            "abrir"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Listar Categorias",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "X-Empresa-Id",
+            "value": "{{empresa_id}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/categorias",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "categorias"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Listar Itens por Categoria",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "X-Empresa-Id",
+            "value": "{{empresa_id}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/prod_categorias/{{categoria_id}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "prod_categorias",
+            "{{categoria_id}}"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Adicionar Item ao Pedido",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "X-Empresa-Id",
+            "value": "{{empresa_id}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"produto_id\": {{produto_id}},\n  \"quantidade\": 1,\n  \"preco\": 10.00\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/pedidos/{{pedido_id}}/itens",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "pedidos",
+            "{{pedido_id}}",
+            "itens"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Adicionar Complemento (Opcao)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "X-Empresa-Id",
+            "value": "{{empresa_id}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"pedido_item_id\": {{pedido_item_id}},\n  \"opcao_item_id\": {{opcao_item_id}}\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/pedido-item-opcoes",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "pedido-item-opcoes"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Listar Itens do Pedido",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "X-Empresa-Id",
+            "value": "{{empresa_id}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/pedido-itens?pedido_id={{pedido_id}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "pedido-itens"
+          ],
+          "query": [
+            {
+              "key": "pedido_id",
+              "value": "{{pedido_id}}"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Listar Formas de Pagamento",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "X-Empresa-Id",
+            "value": "{{empresa_id}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/formas-pagamento",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "formas-pagamento"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Registrar Pagamento",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "X-Empresa-Id",
+            "value": "{{empresa_id}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"pedido_id\": {{pedido_id}},\n  \"forma_pagamento_id\": {{forma_pagamento_id}},\n  \"valor\": {{pagamento_valor}}\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/pagamentos",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "pagamentos"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Fechar Pedido",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "X-Empresa-Id",
+            "value": "{{empresa_id}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/pedidos/{{pedido_id}}/fechar",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "pedidos",
+            "{{pedido_id}}",
+            "fechar"
+          ]
+        }
+      }
+    }
+  ]
+}

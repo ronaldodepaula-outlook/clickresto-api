@@ -1,0 +1,238 @@
+{
+  "info": {
+    "name": "ClickResto - Delivery",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost/clickresto-api/public/api/v1"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "entregador_id",
+      "value": "1"
+    },
+    {
+      "key": "entrega_id",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "Entregadores",
+      "item": [
+        {
+          "name": "List Entregadores",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/entregadores",
+              "host": ["{{base_url}}"],
+              "path": ["entregadores"]
+            }
+          }
+        },
+        {
+          "name": "Create Entregador",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/entregadores",
+              "host": ["{{base_url}}"],
+              "path": ["entregadores"]
+            }
+          }
+        },
+        {
+          "name": "Get Entregador",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/entregadores/{{entregador_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["entregadores", "{{entregador_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Entregador",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/entregadores/{{entregador_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["entregadores", "{{entregador_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Entregador",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/entregadores/{{entregador_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["entregadores", "{{entregador_id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Entregas",
+      "item": [
+        {
+          "name": "List Entregas",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/entregas",
+              "host": ["{{base_url}}"],
+              "path": ["entregas"]
+            }
+          }
+        },
+        {
+          "name": "Create Entrega",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/entregas",
+              "host": ["{{base_url}}"],
+              "path": ["entregas"]
+            }
+          }
+        },
+        {
+          "name": "Get Entrega",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/entregas/{{entrega_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["entregas", "{{entrega_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Entrega",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/entregas/{{entrega_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["entregas", "{{entrega_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Entrega",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/entregas/{{entrega_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["entregas", "{{entrega_id}}"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

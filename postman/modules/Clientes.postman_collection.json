@@ -1,0 +1,238 @@
+{
+  "info": {
+    "name": "ClickResto - Clientes",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost/clickresto-api/public/api/v1"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "cliente_id",
+      "value": "1"
+    },
+    {
+      "key": "cliente_endereco_id",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "Clientes",
+      "item": [
+        {
+          "name": "List Clientes",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/clientes",
+              "host": ["{{base_url}}"],
+              "path": ["clientes"]
+            }
+          }
+        },
+        {
+          "name": "Create Cliente",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/clientes",
+              "host": ["{{base_url}}"],
+              "path": ["clientes"]
+            }
+          }
+        },
+        {
+          "name": "Get Cliente",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/clientes/{{cliente_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["clientes", "{{cliente_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Cliente",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/clientes/{{cliente_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["clientes", "{{cliente_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Cliente",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/clientes/{{cliente_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["clientes", "{{cliente_id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cliente-Enderecos",
+      "item": [
+        {
+          "name": "List Cliente-Enderecos",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/cliente-enderecos",
+              "host": ["{{base_url}}"],
+              "path": ["cliente-enderecos"]
+            }
+          }
+        },
+        {
+          "name": "Create Cliente-Endereco",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/cliente-enderecos",
+              "host": ["{{base_url}}"],
+              "path": ["cliente-enderecos"]
+            }
+          }
+        },
+        {
+          "name": "Get Cliente-Endereco",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/cliente-enderecos/{{cliente_endereco_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["cliente-enderecos", "{{cliente_endereco_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Cliente-Endereco",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/cliente-enderecos/{{cliente_endereco_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["cliente-enderecos", "{{cliente_endereco_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Cliente-Endereco",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/cliente-enderecos/{{cliente_endereco_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["cliente-enderecos", "{{cliente_endereco_id}}"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

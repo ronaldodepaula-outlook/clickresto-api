@@ -1,0 +1,238 @@
+{
+  "info": {
+    "name": "ClickResto - Pagamentos",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost/clickresto-api/public/api/v1"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "forma_pagamento_id",
+      "value": "1"
+    },
+    {
+      "key": "pagamento_id",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "Formas-Pagamento",
+      "item": [
+        {
+          "name": "List Formas-Pagamento",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/formas-pagamento",
+              "host": ["{{base_url}}"],
+              "path": ["formas-pagamento"]
+            }
+          }
+        },
+        {
+          "name": "Create Forma-Pagamento",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/formas-pagamento",
+              "host": ["{{base_url}}"],
+              "path": ["formas-pagamento"]
+            }
+          }
+        },
+        {
+          "name": "Get Forma-Pagamento",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/formas-pagamento/{{forma_pagamento_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["formas-pagamento", "{{forma_pagamento_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Forma-Pagamento",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/formas-pagamento/{{forma_pagamento_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["formas-pagamento", "{{forma_pagamento_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Forma-Pagamento",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/formas-pagamento/{{forma_pagamento_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["formas-pagamento", "{{forma_pagamento_id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pagamentos",
+      "item": [
+        {
+          "name": "List Pagamentos",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pagamentos",
+              "host": ["{{base_url}}"],
+              "path": ["pagamentos"]
+            }
+          }
+        },
+        {
+          "name": "Create Pagamento",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/pagamentos",
+              "host": ["{{base_url}}"],
+              "path": ["pagamentos"]
+            }
+          }
+        },
+        {
+          "name": "Get Pagamento",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pagamentos/{{pagamento_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["pagamentos", "{{pagamento_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Pagamento",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/pagamentos/{{pagamento_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["pagamentos", "{{pagamento_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Pagamento",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/pagamentos/{{pagamento_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["pagamentos", "{{pagamento_id}}"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

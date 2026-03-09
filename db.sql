@@ -1,0 +1,374 @@
+CREATE DATABASE resto_saas;
+USE resto_saas;
+
+-- PLANOS
+CREATE TABLE tb_planos (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ nome VARCHAR(100),
+ limite_usuarios INT,
+ limite_produtos INT,
+ valor DECIMAL(10,2),
+ ativo BOOLEAN
+, created_at TIMESTAMP NULL DEFAULT NULL
+, updated_at TIMESTAMP NULL DEFAULT NULL
+);
+
+
+-- EMPRESAS
+CREATE TABLE tb_empresas (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ nome VARCHAR(150),
+ nome_fantasia VARCHAR(150),
+ cnpj VARCHAR(20),
+ telefone VARCHAR(20),
+ email VARCHAR(120),
+ endereco VARCHAR(200),
+ cidade VARCHAR(100),
+ estado VARCHAR(50),
+ plano_id BIGINT,
+ status ENUM('ativo','suspenso'),
+ criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+, created_at TIMESTAMP NULL DEFAULT NULL
+, updated_at TIMESTAMP NULL DEFAULT NULL
+);
+
+
+-- ASSINATURAS
+CREATE TABLE tb_assinaturas (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ empresa_id BIGINT,
+ plano_id BIGINT,
+ data_inicio DATE,
+ data_fim DATE,
+ status VARCHAR(50)
+, created_at TIMESTAMP NULL DEFAULT NULL
+, updated_at TIMESTAMP NULL DEFAULT NULL
+);
+
+
+-- USUARIOS
+CREATE TABLE tb_usuarios (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ empresa_id BIGINT,
+ nome VARCHAR(150),
+ email VARCHAR(150),
+ senha VARCHAR(255),
+ ativo BOOLEAN,
+ criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+, created_at TIMESTAMP NULL DEFAULT NULL
+, updated_at TIMESTAMP NULL DEFAULT NULL
+);
+
+
+-- PERFIS
+CREATE TABLE tb_perfis (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ nome VARCHAR(50) UNIQUE,
+ descricao VARCHAR(200)
+, created_at TIMESTAMP NULL DEFAULT NULL
+, updated_at TIMESTAMP NULL DEFAULT NULL
+);
+
+
+-- USUARIO PERFIL
+CREATE TABLE tb_usuario_perfis (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ usuario_id BIGINT,
+ perfil_id BIGINT
+, created_at TIMESTAMP NULL DEFAULT NULL
+, updated_at TIMESTAMP NULL DEFAULT NULL
+);
+
+
+-- PERMISSOES
+CREATE TABLE tb_permissoes (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ nome VARCHAR(100),
+ descricao VARCHAR(200)
+, created_at TIMESTAMP NULL DEFAULT NULL
+, updated_at TIMESTAMP NULL DEFAULT NULL
+);
+
+
+-- PERFIL PERMISSOES
+CREATE TABLE tb_perfil_permissoes (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ perfil_id BIGINT,
+ permissao_id BIGINT
+, created_at TIMESTAMP NULL DEFAULT NULL
+, updated_at TIMESTAMP NULL DEFAULT NULL
+);
+
+
+-- CATEGORIAS
+CREATE TABLE tb_categorias (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ empresa_id BIGINT,
+ nome VARCHAR(120),
+ ativo BOOLEAN
+, created_at TIMESTAMP NULL DEFAULT NULL
+, updated_at TIMESTAMP NULL DEFAULT NULL
+);
+
+
+-- PRODUTOS
+CREATE TABLE tb_produtos (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ empresa_id BIGINT,
+ categoria_id BIGINT,
+ nome VARCHAR(150),
+ descricao TEXT,
+ preco DECIMAL(10,2),
+ custo DECIMAL(10,2),
+ codigo_barras VARCHAR(50),
+ ativo BOOLEAN
+, created_at TIMESTAMP NULL DEFAULT NULL
+, updated_at TIMESTAMP NULL DEFAULT NULL
+);
+
+
+-- IMAGENS PRODUTO
+CREATE TABLE tb_produto_imagens (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ produto_id BIGINT,
+ url VARCHAR(255)
+, created_at TIMESTAMP NULL DEFAULT NULL
+, updated_at TIMESTAMP NULL DEFAULT NULL
+);
+
+
+-- OPCOES PRODUTO
+CREATE TABLE tb_produto_opcoes (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ produto_id BIGINT,
+ nome VARCHAR(100)
+, created_at TIMESTAMP NULL DEFAULT NULL
+, updated_at TIMESTAMP NULL DEFAULT NULL
+);
+
+
+-- ITENS DAS OPCOES
+CREATE TABLE tb_produto_opcao_itens (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ opcao_id BIGINT,
+ nome VARCHAR(100),
+ preco_adicional DECIMAL(10,2)
+, created_at TIMESTAMP NULL DEFAULT NULL
+, updated_at TIMESTAMP NULL DEFAULT NULL
+);
+
+
+-- MESAS
+CREATE TABLE tb_mesas (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ empresa_id BIGINT,
+ numero INT,
+ status ENUM('livre','ocupada')
+, created_at TIMESTAMP NULL DEFAULT NULL
+, updated_at TIMESTAMP NULL DEFAULT NULL
+);
+
+
+-- COMANDAS
+CREATE TABLE tb_comandas (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ empresa_id BIGINT,
+ numero VARCHAR(50),
+ status ENUM('aberta','fechada')
+, created_at TIMESTAMP NULL DEFAULT NULL
+, updated_at TIMESTAMP NULL DEFAULT NULL
+);
+
+
+-- CLIENTES
+CREATE TABLE tb_clientes (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ empresa_id BIGINT,
+ nome VARCHAR(150),
+ telefone VARCHAR(20),
+ email VARCHAR(150)
+, created_at TIMESTAMP NULL DEFAULT NULL
+, updated_at TIMESTAMP NULL DEFAULT NULL
+);
+
+
+-- ENDERECO CLIENTE
+CREATE TABLE tb_cliente_enderecos (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ cliente_id BIGINT,
+ endereco VARCHAR(200),
+ numero VARCHAR(20),
+ bairro VARCHAR(100),
+ cidade VARCHAR(100),
+ referencia VARCHAR(200)
+, created_at TIMESTAMP NULL DEFAULT NULL
+, updated_at TIMESTAMP NULL DEFAULT NULL
+);
+
+
+-- ENTREGADORES
+CREATE TABLE tb_entregadores (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ empresa_id BIGINT,
+ nome VARCHAR(150),
+ telefone VARCHAR(20),
+ ativo BOOLEAN
+, created_at TIMESTAMP NULL DEFAULT NULL
+, updated_at TIMESTAMP NULL DEFAULT NULL
+);
+
+
+-- PEDIDOS
+CREATE TABLE tb_pedidos (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ empresa_id BIGINT,
+ usuario_id BIGINT,
+ mesa_id BIGINT,
+ comanda_id BIGINT,
+ cliente_id BIGINT,
+ tipo ENUM('balcao','mesa','delivery','auto'),
+ status ENUM('aberto','preparo','pronto','entregue','fechado'),
+ total DECIMAL(10,2),
+ criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+, created_at TIMESTAMP NULL DEFAULT NULL
+, updated_at TIMESTAMP NULL DEFAULT NULL
+);
+
+
+-- ITENS PEDIDO
+CREATE TABLE tb_pedido_itens (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ pedido_id BIGINT,
+ produto_id BIGINT,
+ quantidade INT,
+ preco DECIMAL(10,2),
+ observacao TEXT
+, created_at TIMESTAMP NULL DEFAULT NULL
+, updated_at TIMESTAMP NULL DEFAULT NULL
+);
+
+
+-- OPCOES DOS ITENS
+CREATE TABLE tb_pedido_item_opcoes (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ pedido_item_id BIGINT,
+ opcao_item_id BIGINT
+, created_at TIMESTAMP NULL DEFAULT NULL
+, updated_at TIMESTAMP NULL DEFAULT NULL
+);
+
+
+-- ENTREGA
+CREATE TABLE tb_entregas (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ pedido_id BIGINT,
+ entregador_id BIGINT,
+ taxa DECIMAL(10,2),
+ status ENUM('pendente','saiu','entregue')
+, created_at TIMESTAMP NULL DEFAULT NULL
+, updated_at TIMESTAMP NULL DEFAULT NULL
+);
+
+
+-- ESTACOES COZINHA
+CREATE TABLE tb_cozinha_estacoes (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ empresa_id BIGINT,
+ nome VARCHAR(100)
+, created_at TIMESTAMP NULL DEFAULT NULL
+, updated_at TIMESTAMP NULL DEFAULT NULL
+);
+
+
+-- ITENS COZINHA
+CREATE TABLE tb_cozinha_itens (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ pedido_item_id BIGINT,
+ estacao_id BIGINT,
+ status ENUM('recebido','preparo','pronto')
+, created_at TIMESTAMP NULL DEFAULT NULL
+, updated_at TIMESTAMP NULL DEFAULT NULL
+);
+
+
+-- FORMAS PAGAMENTO
+CREATE TABLE tb_formas_pagamento (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ empresa_id BIGINT,
+ nome VARCHAR(100)
+, created_at TIMESTAMP NULL DEFAULT NULL
+, updated_at TIMESTAMP NULL DEFAULT NULL
+);
+
+
+-- PAGAMENTOS
+CREATE TABLE tb_pagamentos (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ pedido_id BIGINT,
+ forma_pagamento_id BIGINT,
+ valor DECIMAL(10,2)
+, created_at TIMESTAMP NULL DEFAULT NULL
+, updated_at TIMESTAMP NULL DEFAULT NULL
+);
+
+
+-- CAIXAS
+CREATE TABLE tb_caixas (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ empresa_id BIGINT,
+ usuario_id BIGINT,
+ aberto_em TIMESTAMP NULL DEFAULT NULL,
+ fechado_em TIMESTAMP NULL DEFAULT NULL,
+ saldo_inicial DECIMAL(10,2),
+ saldo_final DECIMAL(10,2)
+, created_at TIMESTAMP NULL DEFAULT NULL
+, updated_at TIMESTAMP NULL DEFAULT NULL
+);
+
+
+-- MOVIMENTO CAIXA
+CREATE TABLE tb_caixa_movimentos (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ caixa_id BIGINT,
+ tipo ENUM('entrada','saida'),
+ valor DECIMAL(10,2),
+ descricao VARCHAR(200),
+ criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+, created_at TIMESTAMP NULL DEFAULT NULL
+, updated_at TIMESTAMP NULL DEFAULT NULL
+);
+
+
+-- ESTOQUE
+CREATE TABLE tb_estoque (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ empresa_id BIGINT,
+ produto_id BIGINT,
+ quantidade DECIMAL(10,2)
+, created_at TIMESTAMP NULL DEFAULT NULL
+, updated_at TIMESTAMP NULL DEFAULT NULL
+);
+
+
+-- MOVIMENTO ESTOQUE
+CREATE TABLE tb_estoque_movimentos (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ produto_id BIGINT,
+ tipo ENUM('entrada','saida'),
+ quantidade DECIMAL(10,2),
+ criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+, created_at TIMESTAMP NULL DEFAULT NULL
+, updated_at TIMESTAMP NULL DEFAULT NULL
+);
+
+
+-- CONFIGURACOES
+CREATE TABLE tb_configuracoes (
+ id BIGINT AUTO_INCREMENT PRIMARY KEY,
+ empresa_id BIGINT,
+ chave VARCHAR(100),
+ valor TEXT
+, created_at TIMESTAMP NULL DEFAULT NULL
+, updated_at TIMESTAMP NULL DEFAULT NULL
+);
+

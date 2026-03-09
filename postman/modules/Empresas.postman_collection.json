@@ -1,0 +1,693 @@
+{
+  "info": {
+    "name": "ClickResto - Empresas",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost/clickresto-api/public/api/v1"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "empresa_id",
+      "value": "1"
+    },
+    {
+      "key": "plano_id",
+      "value": "1"
+    },
+    {
+      "key": "assinatura_id",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "List All Empresas (Admin)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/empresas/admin-list",
+              "host": ["{{base_url}}"],
+              "path": ["empresas", "admin-list"]
+            },
+            "description": "Lista todas as empresas com usuários, plano e status da assinatura (apenas para admin_master)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Planos",
+      "item": [
+        {
+          "name": "List Planos",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/planos",
+              "host": ["{{base_url}}"],
+              "path": ["planos"]
+            },
+            "description": "Planos é um recurso global de admin"
+          }
+        },
+        {
+          "name": "Create Plano",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/planos",
+              "host": ["{{base_url}}"],
+              "path": ["planos"]
+            }
+          }
+        },
+        {
+          "name": "Get Plano",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/planos/{{plano_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["planos", "{{plano_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Plano",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/planos/{{plano_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["planos", "{{plano_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Plano",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/planos/{{plano_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["planos", "{{plano_id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Perfis",
+      "item": [
+        {
+          "name": "List Perfis",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/perfis",
+              "host": ["{{base_url}}"],
+              "path": ["perfis"]
+            },
+            "description": "Perfis é um recurso global de admin"
+          }
+        },
+        {
+          "name": "Create Perfil",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/perfis",
+              "host": ["{{base_url}}"],
+              "path": ["perfis"]
+            }
+          }
+        },
+        {
+          "name": "Get Perfil",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/perfis/{{perfil_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["perfis", "{{perfil_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Perfil",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/perfis/{{perfil_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["perfis", "{{perfil_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Perfil",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/perfis/{{perfil_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["perfis", "{{perfil_id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Permissoes",
+      "item": [
+        {
+          "name": "List Permissoes",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/permissoes",
+              "host": ["{{base_url}}"],
+              "path": ["permissoes"]
+            },
+            "description": "Permissoes é um recurso global de admin"
+          }
+        },
+        {
+          "name": "Create Permissao",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/permissoes",
+              "host": ["{{base_url}}"],
+              "path": ["permissoes"]
+            }
+          }
+        },
+        {
+          "name": "Get Permissao",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/permissoes/{{permissao_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["permissoes", "{{permissao_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Permissao",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/permissoes/{{permissao_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["permissoes", "{{permissao_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Permissao",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/permissoes/{{permissao_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["permissoes", "{{permissao_id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Perfil-Permissoes",
+      "item": [
+        {
+          "name": "List Perfil-Permissoes",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/perfil-permissoes",
+              "host": ["{{base_url}}"],
+              "path": ["perfil-permissoes"]
+            },
+            "description": "Perfil-Permissoes é um recurso global de admin"
+          }
+        },
+        {
+          "name": "Create Perfil-Permissao",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/perfil-permissoes",
+              "host": ["{{base_url}}"],
+              "path": ["perfil-permissoes"]
+            }
+          }
+        },
+        {
+          "name": "Get Perfil-Permissao",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/perfil-permissoes/{{perfil_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["perfil-permissoes", "{{perfil_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Perfil-Permissao",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/perfil-permissoes/{{perfil_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["perfil-permissoes", "{{perfil_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Perfil-Permissao",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/perfil-permissoes/{{perfil_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["perfil-permissoes", "{{perfil_id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Empresas",
+      "item": [
+        {
+          "name": "List Empresas",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/empresas",
+              "host": ["{{base_url}}"],
+              "path": ["empresas"]
+            }
+          }
+        },
+        {
+          "name": "Create Empresa",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/empresas",
+              "host": ["{{base_url}}"],
+              "path": ["empresas"]
+            }
+          }
+        },
+        {
+          "name": "Get Empresa",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/empresas/{{empresa_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["empresas", "{{empresa_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Empresa",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/empresas/{{empresa_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["empresas", "{{empresa_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Empresa",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/empresas/{{empresa_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["empresas", "{{empresa_id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Assinaturas",
+      "item": [
+        {
+          "name": "List Assinaturas",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/assinaturas",
+              "host": ["{{base_url}}"],
+              "path": ["assinaturas"]
+            }
+          }
+        },
+        {
+          "name": "Create Assinatura",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/assinaturas",
+              "host": ["{{base_url}}"],
+              "path": ["assinaturas"]
+            }
+          }
+        },
+        {
+          "name": "Get Assinatura",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/assinaturas/{{assinatura_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["assinaturas", "{{assinatura_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Assinatura",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/assinaturas/{{assinatura_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["assinaturas", "{{assinatura_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Assinatura",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/assinaturas/{{assinatura_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["assinaturas", "{{assinatura_id}}"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

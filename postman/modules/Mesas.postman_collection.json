@@ -1,0 +1,123 @@
+{
+  "info": {
+    "name": "ClickResto - Mesas",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost/clickresto-api/public/api/v1"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "mesa_id",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "List Mesas",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/mesas",
+          "host": ["{{base_url}}"],
+          "path": ["mesas"]
+        }
+      }
+    },
+    {
+      "name": "Create Mesa",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{}"
+        },
+        "url": {
+          "raw": "{{base_url}}/mesas",
+          "host": ["{{base_url}}"],
+          "path": ["mesas"]
+        }
+      }
+    },
+    {
+      "name": "Get Mesa",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/mesas/{{mesa_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["mesas", "{{mesa_id}}"]
+        }
+      }
+    },
+    {
+      "name": "Update Mesa",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{}"
+        },
+        "url": {
+          "raw": "{{base_url}}/mesas/{{mesa_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["mesas", "{{mesa_id}}"]
+        }
+      }
+    },
+    {
+      "name": "Delete Mesa",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/mesas/{{mesa_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["mesas", "{{mesa_id}}"]
+        }
+      }
+    }
+  ]
+}

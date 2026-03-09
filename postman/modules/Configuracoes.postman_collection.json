@@ -1,0 +1,123 @@
+{
+  "info": {
+    "name": "ClickResto - Configuracoes",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost/clickresto-api/public/api/v1"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "configuracao_id",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "List Configuracoes",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/configuracoes",
+          "host": ["{{base_url}}"],
+          "path": ["configuracoes"]
+        }
+      }
+    },
+    {
+      "name": "Create Configuracao",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{}"
+        },
+        "url": {
+          "raw": "{{base_url}}/configuracoes",
+          "host": ["{{base_url}}"],
+          "path": ["configuracoes"]
+        }
+      }
+    },
+    {
+      "name": "Get Configuracao",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/configuracoes/{{configuracao_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["configuracoes", "{{configuracao_id}}"]
+        }
+      }
+    },
+    {
+      "name": "Update Configuracao",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{}"
+        },
+        "url": {
+          "raw": "{{base_url}}/configuracoes/{{configuracao_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["configuracoes", "{{configuracao_id}}"]
+        }
+      }
+    },
+    {
+      "name": "Delete Configuracao",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/configuracoes/{{configuracao_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["configuracoes", "{{configuracao_id}}"]
+        }
+      }
+    }
+  ]
+}

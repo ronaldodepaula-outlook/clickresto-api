@@ -1,0 +1,263 @@
+{
+  "info": {
+    "name": "ClickResto - Cozinha",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost/clickresto-api/public/api/v1"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "cozinha_estacao_id",
+      "value": "1"
+    },
+    {
+      "key": "cozinha_item_id",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "Cozinha-Estacoes",
+      "item": [
+        {
+          "name": "List Cozinha-Estacoes",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/cozinha-estacoes",
+              "host": ["{{base_url}}"],
+              "path": ["cozinha-estacoes"]
+            }
+          }
+        },
+        {
+          "name": "Create Cozinha-Estacao",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/cozinha-estacoes",
+              "host": ["{{base_url}}"],
+              "path": ["cozinha-estacoes"]
+            }
+          }
+        },
+        {
+          "name": "Get Cozinha-Estacao",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/cozinha-estacoes/{{cozinha_estacao_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["cozinha-estacoes", "{{cozinha_estacao_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Cozinha-Estacao",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/cozinha-estacoes/{{cozinha_estacao_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["cozinha-estacoes", "{{cozinha_estacao_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Cozinha-Estacao",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/cozinha-estacoes/{{cozinha_estacao_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["cozinha-estacoes", "{{cozinha_estacao_id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cozinha-Itens",
+      "item": [
+        {
+          "name": "List Cozinha-Itens",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/cozinha-itens",
+              "host": ["{{base_url}}"],
+              "path": ["cozinha-itens"]
+            }
+          }
+        },
+        {
+          "name": "Create Cozinha-Item",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/cozinha-itens",
+              "host": ["{{base_url}}"],
+              "path": ["cozinha-itens"]
+            }
+          }
+        },
+        {
+          "name": "Get Cozinha-Item",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/cozinha-itens/{{cozinha_item_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["cozinha-itens", "{{cozinha_item_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Cozinha-Item",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/cozinha-itens/{{cozinha_item_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["cozinha-itens", "{{cozinha_item_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Cozinha-Item",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/cozinha-itens/{{cozinha_item_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["cozinha-itens", "{{cozinha_item_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Atualizar Status Cozinha-Item",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{}"
+            },
+            "url": {
+              "raw": "{{base_url}}/cozinha-itens/{{cozinha_item_id}}/status",
+              "host": ["{{base_url}}"],
+              "path": ["cozinha-itens", "{{cozinha_item_id}}", "status"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
