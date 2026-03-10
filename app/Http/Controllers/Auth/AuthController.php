@@ -261,7 +261,19 @@ class AuthController extends Controller
         }
 
         if ($confirmacao->confirmado_em) {
-            return response()->json(['message' => 'E-mail ja confirmado']);
+            $perfilCriado = false;
+            if ($confirmacao->usuario_id) {
+                $perfil = UsuarioPerfil::firstOrCreate([
+                    'usuario_id' => $confirmacao->usuario_id,
+                    'perfil_id' => 2,
+                ]);
+                $perfilCriado = $perfil->wasRecentlyCreated;
+            }
+
+            return response()->json([
+                'message' => 'E-mail ja confirmado',
+                'perfil_admin_criado' => $perfilCriado,
+            ]);
         }
 
         if (now()->greaterThan($confirmacao->expira_em)) {
@@ -283,12 +295,19 @@ class AuthController extends Controller
             $assinatura->save();
         }
 
-        UsuarioPerfil::firstOrCreate([
-            'usuario_id' => $confirmacao->usuario_id,
-            'perfil_id' => 2,
-        ]);
+        $perfilCriado = false;
+        if ($confirmacao->usuario_id) {
+            $perfil = UsuarioPerfil::firstOrCreate([
+                'usuario_id' => $confirmacao->usuario_id,
+                'perfil_id' => 2,
+            ]);
+            $perfilCriado = $perfil->wasRecentlyCreated;
+        }
 
-        return response()->json(['message' => 'E-mail confirmado. Empresa ativada com sucesso.']);
+        return response()->json([
+            'message' => 'E-mail confirmado. Empresa ativada com sucesso.',
+            'perfil_admin_criado' => $perfilCriado,
+        ]);
     }
 
     public function me()
