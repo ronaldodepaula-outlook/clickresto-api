@@ -106,6 +106,7 @@ Route::prefix('v1')->group(function () {
         Route::apiResource('cozinha-estacoes', CozinhaEstacaoController::class);
         Route::get('cozinha-itens/pedidos', [CozinhaItemController::class, 'pedidos']);
         Route::get('cozinha-itens/pedidos-usuario', [CozinhaItemController::class, 'pedidosPorUsuario']);
+        Route::get('cozinha-itens/pedidos-usuario-preparo', [CozinhaItemController::class, 'pedidosPreparoPorUsuario']);
         Route::patch('cozinha-itens/{id}/status', [CozinhaItemController::class, 'atualizarStatus']);
         Route::apiResource('cozinha-itens', CozinhaItemController::class);
 

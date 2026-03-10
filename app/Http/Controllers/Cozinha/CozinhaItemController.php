@@ -320,6 +320,13 @@ class CozinhaItemController extends BaseCrudController
         return $pedidos;
     }
 
+    public function pedidosPreparoPorUsuario(Request $request)
+    {
+        $request->merge(['pedido_status' => 'preparo']);
+
+        return $this->pedidosPorUsuario($request);
+    }
+
     public function atualizarStatus(Request $request, int $id)
     {
         $data = $request->validate([

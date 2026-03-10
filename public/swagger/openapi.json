@@ -5530,6 +5530,136 @@
         }
       }
     },
+    "/cozinha-itens/pedidos-usuario-preparo": {
+      "get": {
+        "tags": [
+          "CozinhaItem"
+        ],
+        "summary": "Listar pedidos em preparo do usuario (cozinha)",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "X-Empresa-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Filtra status do item da cozinha (recebido, preparo, pronto)"
+          },
+          {
+            "name": "estacao_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "data",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "estacao",
+                "status"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                },
+                "example": [
+                  {
+                    "pedido": {
+                      "id": 123,
+                      "empresa_id": 1,
+                      "usuario_id": 10,
+                      "mesa_id": 5,
+                      "comanda_id": null,
+                      "cliente_id": 3,
+                      "tipo": "mesa",
+                      "status": "preparo",
+                      "total": 89.9,
+                      "criado_em": "2026-03-10 12:34:56",
+                      "mesa": {
+                        "id": 5,
+                        "numero": 12,
+                        "status": "ocupada"
+                      },
+                      "comanda": null,
+                      "cliente": {
+                        "id": 3,
+                        "nome": "Joao Silva",
+                        "telefone": "11999990000",
+                        "email": "joao@exemplo.com"
+                      }
+                    },
+                    "estacoes": [
+                      {
+                        "id": 2,
+                        "nome": "Grelha"
+                      }
+                    ],
+                    "itens": [
+                      {
+                        "pedido_item_id": 555,
+                        "produto_id": 99,
+                        "produto_nome": "Hamburguer",
+                        "quantidade": 2,
+                        "preco": 25.5,
+                        "observacao": "Sem cebola",
+                        "cozinha_item": {
+                          "id": 777,
+                          "status": "preparo",
+                          "created_at": "2026-03-10 12:35:10",
+                          "updated_at": "2026-03-10 12:40:00"
+                        },
+                        "estacao": {
+                          "id": 2,
+                          "nome": "Grelha"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
     "/formas-pagamento": {
       "get": {
         "tags": [
