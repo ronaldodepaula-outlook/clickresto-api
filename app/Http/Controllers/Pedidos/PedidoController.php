@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Pedidos;
 
 use App\Http\Controllers\BaseCrudController;
 use App\Models\CozinhaItem;
+use App\Models\Mesa;
 use App\Models\Pagamento;
 use App\Models\Pedido;
 use App\Models\PedidoItem;
@@ -36,6 +37,10 @@ class PedidoController extends BaseCrudController
 
         $pedido = Pedido::create($data);
 
+        if (!empty($pedido->mesa_id)) {
+            $this->atualizarStatusMesa($request, (int) $pedido->mesa_id, 'ocupada');
+        }
+
         return response()->json($pedido, Response::HTTP_CREATED);
     }
 
@@ -58,6 +63,10 @@ class PedidoController extends BaseCrudController
         $data['total'] = 0;
 
         $pedido = Pedido::create($data);
+
+        if (!empty($pedido->mesa_id)) {
+            $this->atualizarStatusMesa($request, (int) $pedido->mesa_id, 'ocupada');
+        }
 
         return response()->json($pedido, Response::HTTP_CREATED);
     }
@@ -205,6 +214,8 @@ class PedidoController extends BaseCrudController
         $pedido->status = 'fechado';
         $pedido->save();
 
+        $this->liberarMesaSeSemPedidosAbertos($request, $pedido);
+
         return response()->json(['message' => 'Pedido fechado com sucesso']);
     }
 
@@ -264,5 +275,38 @@ class PedidoController extends BaseCrudController
 
         $pedido->total = $total ?? 0;
         $pedido->save();
+    }
+
+    protected function atualizarStatusMesa(Request $request, int $mesaId, string $status): void
+    {
+        $query = Mesa::query();
+        $this->applyEmpresaScope($query, $request);
+        $mesa = $query->find($mesaId);
+
+        if (!$mesa || $mesa->status === $status) {
+            return;
+        }
+
+        $mesa->status = $status;
+        $mesa->save();
+    }
+
+    protected function liberarMesaSeSemPedidosAbertos(Request $request, Pedido $pedido): void
+    {
+        if (empty($pedido->mesa_id) || empty($pedido->usuario_id)) {
+            return;
+        }
+
+        $query = Pedido::query();
+        $this->applyEmpresaScope($query, $request);
+        $emAberto = $query
+            ->where('mesa_id', $pedido->mesa_id)
+            ->where('usuario_id', $pedido->usuario_id)
+            ->whereIn('status', ['aberto', 'preparo', 'pronto'])
+            ->exists();
+
+        if (!$emAberto) {
+            $this->atualizarStatusMesa($request, (int) $pedido->mesa_id, 'livre');
+        }
     }
 }

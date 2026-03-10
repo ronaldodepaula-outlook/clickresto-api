@@ -83,6 +83,7 @@ Route::prefix('v1')->group(function () {
         Route::apiResource('produto-opcao-itens', ProdutoOpcaoItemController::class);
 
         Route::apiResource('mesas', MesaController::class);
+        Route::post('mesas/{mesa}/gestao', [MesaController::class, 'gestao']);
         Route::apiResource('comandas', ComandaController::class);
 
         Route::apiResource('clientes', ClienteController::class);
