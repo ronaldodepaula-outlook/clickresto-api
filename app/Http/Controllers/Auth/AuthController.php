@@ -8,6 +8,7 @@ use App\Models\Empresa;
 use App\Models\Plano;
 use App\Models\Assinatura;
 use App\Models\ConfirmacaoEmail;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -39,7 +40,7 @@ class AuthController extends Controller
             return response()->json(['message' => 'Usuario inativo'], Response::HTTP_UNAUTHORIZED);
         }
 
-        return $this->respondWithToken($token);
+        return $this->respondWithToken($token, $user);
     }
 
     public function register(Request $request)
@@ -291,13 +292,7 @@ class AuthController extends Controller
             return response()->json(['message' => 'Usuario nao autenticado'], Response::HTTP_UNAUTHORIZED);
         }
 
-        $user->load([
-            'empresa.plano',
-            'empresa.assinaturaAtiva',
-            'empresa.usuarios',
-        ]);
-
-        return response()->json($user);
+        return response()->json($this->buildUserPayload($user));
     }
 
     public function logout()
@@ -312,12 +307,83 @@ class AuthController extends Controller
         return $this->respondWithToken(auth('api')->refresh());
     }
 
-    protected function respondWithToken(string $token)
+    protected function respondWithToken(string $token, ?Usuario $user = null)
     {
-        return response()->json([
+        $response = [
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => auth('api')->factory()->getTTL() * 60,
+        ];
+
+        if ($user) {
+            $response = array_merge($response, $this->buildUserPayload($user));
+        }
+
+        return response()->json($response);
+    }
+
+    protected function buildUserPayload(Usuario $user): array
+    {
+        $user->load([
+            'empresa.plano',
+            'empresa.usuarios',
         ]);
+
+        $empresa = $user->empresa;
+        if ($empresa) {
+            $assinatura = Assinatura::where('empresa_id', $empresa->id)
+                ->orderByDesc('data_fim')
+                ->orderByDesc('id')
+                ->first();
+
+            if ($assinatura) {
+                $licenca = $this->buildLicencaInfo($assinatura);
+                $assinatura->setAttribute('licenca', $licenca);
+                $empresa->setRelation('assinaturaAtiva', $assinatura);
+                $empresa->setAttribute('licenca', $licenca);
+            } else {
+                $empresa->setRelation('assinaturaAtiva', null);
+                $empresa->setAttribute('licenca', $this->buildLicencaInfo(null));
+            }
+        }
+
+        return $user->toArray();
+    }
+
+    protected function buildLicencaInfo(?Assinatura $assinatura): array
+    {
+        if (! $assinatura || ! $assinatura->data_inicio || ! $assinatura->data_fim) {
+            return [
+                'status' => 'indisponivel',
+                'mensagem' => 'Licenca nao encontrada',
+                'dias_restantes' => null,
+                'dias_expirados' => null,
+                'duracao_dias' => null,
+                'duracao_meses' => null,
+                'duracao_anos' => null,
+            ];
+        }
+
+        $inicio = Carbon::parse($assinatura->data_inicio)->startOfDay();
+        $fim = Carbon::parse($assinatura->data_fim)->startOfDay();
+        $hoje = now()->startOfDay();
+
+        $duracaoDias = $inicio->diffInDays($fim);
+        $duracaoMeses = $inicio->diffInMonths($fim);
+        $duracaoAnos = $inicio->diffInYears($fim);
+        $diasRestantes = $hoje->diffInDays($fim, false);
+        $expirada = $diasRestantes < 0;
+
+        return [
+            'status' => $expirada ? 'expirada' : 'ok',
+            'mensagem' => $expirada ? 'Licenca expirada' : 'Licenca ok',
+            'dias_restantes' => $expirada ? 0 : $diasRestantes,
+            'dias_expirados' => $expirada ? abs($diasRestantes) : 0,
+            'duracao_dias' => $duracaoDias,
+            'duracao_meses' => $duracaoMeses,
+            'duracao_anos' => $duracaoAnos,
+            'data_inicio' => $assinatura->data_inicio,
+            'data_fim' => $assinatura->data_fim,
+        ];
     }
 }

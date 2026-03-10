@@ -28,6 +28,8 @@ class Empresa extends BaseModel
 
     public function assinaturaAtiva()
     {
-        return $this->hasOne(Assinatura::class, 'empresa_id')->where('status', 'ativo')->latest();
+        return $this->hasOne(Assinatura::class, 'empresa_id')
+            ->whereIn('status', ['ativa', 'trial', 'ativo'])
+            ->latest();
     }
 }

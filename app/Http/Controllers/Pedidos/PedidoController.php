@@ -193,6 +193,10 @@ class PedidoController extends BaseCrudController
         $pedido->status = $data['status'];
         $pedido->save();
 
+        if ($data['status'] === 'fechado') {
+            $this->liberarMesaSeSemPedidosAbertos($request, $pedido);
+        }
+
         return $pedido;
     }
 
