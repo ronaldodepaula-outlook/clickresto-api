@@ -8,6 +8,7 @@ use App\Models\Empresa;
 use App\Models\Plano;
 use App\Models\Assinatura;
 use App\Models\ConfirmacaoEmail;
+use App\Models\UsuarioPerfil;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -188,7 +189,7 @@ class AuthController extends Controller
         $result = DB::transaction(function () use ($data, $plano, $request) {
             $empresaData = $data['empresa'];
             $empresaData['plano_id'] = $plano->id;
-            $empresaData['status'] = 'suspenso';
+            $empresaData['status'] = 'ativo';
 
             $empresa = Empresa::create($empresaData);
 
@@ -281,6 +282,11 @@ class AuthController extends Controller
             $assinatura->status = 'ativa';
             $assinatura->save();
         }
+
+        UsuarioPerfil::firstOrCreate([
+            'usuario_id' => $confirmacao->usuario_id,
+            'perfil_id' => 2,
+        ]);
 
         return response()->json(['message' => 'E-mail confirmado. Empresa ativada com sucesso.']);
     }
