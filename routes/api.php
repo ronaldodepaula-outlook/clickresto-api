@@ -52,10 +52,13 @@ Route::prefix('v1')->group(function () {
 
     Route::middleware(['auth:api', 'check.admin'])->group(function () {
         Route::apiResource('planos', PlanoController::class);
-        Route::apiResource('perfis', PerfilController::class);
         Route::apiResource('permissoes', PermissaoController::class);
         Route::apiResource('perfil-permissoes', PerfilPermissaoController::class);
         Route::get('empresas/admin-list', [EmpresaController::class, 'adminList']);
+    });
+
+    Route::middleware(['auth:api', 'check.admin_empresa'])->group(function () {
+        Route::apiResource('perfis', PerfilController::class);
     });
 
     Route::middleware(['auth:api', 'check.admin_empresa'])->group(function () {

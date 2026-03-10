@@ -1,0 +1,533 @@
+{
+  "info": {
+    "name": "ClickResto - Gestao de Usuarios (Empresa)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost/clickresto-api/public/api/v1"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "empresa_id",
+      "value": "1"
+    },
+    {
+      "key": "usuario_id",
+      "value": "1"
+    },
+    {
+      "key": "perfil_id",
+      "value": "2"
+    },
+    {
+      "key": "permissao_id",
+      "value": "1"
+    },
+    {
+      "key": "usuario_perfil_id",
+      "value": "1"
+    },
+    {
+      "key": "perfil_permissao_id",
+      "value": "1"
+    }
+  ],
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@empresa.com\",\n  \"senha\": \"123456\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "login"]
+            }
+          }
+        },
+        {
+          "name": "Me",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/me",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "me"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Usuarios (Empresa)",
+      "item": [
+        {
+          "name": "List Usuarios",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "X-Empresa-Id", "value": "{{empresa_id}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/usuarios?per_page=15",
+              "host": ["{{base_url}}"],
+              "path": ["usuarios"],
+              "query": [
+                { "key": "per_page", "value": "15" }
+              ]
+            }
+          },
+          "description": "Empresa-specific. Envia X-Empresa-Id quando o usuario autenticado nao possui empresa_id."
+        },
+        {
+          "name": "Create Usuario",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "X-Empresa-Id", "value": "{{empresa_id}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Novo Usuario\",\n  \"email\": \"novo@empresa.com\",\n  \"senha\": \"123456\",\n  \"ativo\": true\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/usuarios",
+              "host": ["{{base_url}}"],
+              "path": ["usuarios"]
+            }
+          }
+        },
+        {
+          "name": "Get Usuario",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "X-Empresa-Id", "value": "{{empresa_id}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/usuarios/{{usuario_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["usuarios", "{{usuario_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Usuario",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "X-Empresa-Id", "value": "{{empresa_id}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"Usuario Atualizado\",\n  \"email\": \"usuario@empresa.com\",\n  \"senha\": \"123456\",\n  \"ativo\": true\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/usuarios/{{usuario_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["usuarios", "{{usuario_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Usuario",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "X-Empresa-Id", "value": "{{empresa_id}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/usuarios/{{usuario_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["usuarios", "{{usuario_id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Usuario-Perfis (Vinculo)",
+      "item": [
+        {
+          "name": "List Usuario-Perfis",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/usuario-perfis?usuario_id={{usuario_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["usuario-perfis"],
+              "query": [
+                { "key": "usuario_id", "value": "{{usuario_id}}" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Usuario-Perfil",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"usuario_id\": {{usuario_id}},\n  \"perfil_id\": {{perfil_id}}\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/usuario-perfis",
+              "host": ["{{base_url}}"],
+              "path": ["usuario-perfis"]
+            }
+          }
+        },
+        {
+          "name": "Get Usuario-Perfil",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/usuario-perfis/{{usuario_perfil_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["usuario-perfis", "{{usuario_perfil_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Usuario-Perfil",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"usuario_id\": {{usuario_id}},\n  \"perfil_id\": {{perfil_id}}\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/usuario-perfis/{{usuario_perfil_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["usuario-perfis", "{{usuario_perfil_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Usuario-Perfil",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/usuario-perfis/{{usuario_perfil_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["usuario-perfis", "{{usuario_perfil_id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Perfis",
+      "item": [
+        {
+          "name": "List Perfis",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/perfis?per_page=15",
+              "host": ["{{base_url}}"],
+              "path": ["perfis"],
+              "query": [
+                { "key": "per_page", "value": "15" }
+              ]
+            }
+          },
+          "description": "Disponivel para admin_master (check.admin)."
+        },
+        {
+          "name": "Create Perfil",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"ADMIN_EMPRESA\",\n  \"descricao\": \"Perfil administrador da empresa\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/perfis",
+              "host": ["{{base_url}}"],
+              "path": ["perfis"]
+            }
+          }
+        },
+        {
+          "name": "Get Perfil",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/perfis/{{perfil_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["perfis", "{{perfil_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Perfil",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"ADMIN_EMPRESA\",\n  \"descricao\": \"Atualizado\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/perfis/{{perfil_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["perfis", "{{perfil_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Perfil",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/perfis/{{perfil_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["perfis", "{{perfil_id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Permissoes",
+      "item": [
+        {
+          "name": "List Permissoes",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/permissoes?per_page=15",
+              "host": ["{{base_url}}"],
+              "path": ["permissoes"],
+              "query": [
+                { "key": "per_page", "value": "15" }
+              ]
+            }
+          },
+          "description": "Disponivel para admin_master (check.admin)."
+        },
+        {
+          "name": "Create Permissao",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"USUARIOS_GERENCIAR\",\n  \"descricao\": \"Permite gerenciar usuarios\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/permissoes",
+              "host": ["{{base_url}}"],
+              "path": ["permissoes"]
+            }
+          }
+        },
+        {
+          "name": "Get Permissao",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/permissoes/{{permissao_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["permissoes", "{{permissao_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Permissao",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nome\": \"USUARIOS_GERENCIAR\",\n  \"descricao\": \"Atualizado\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/permissoes/{{permissao_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["permissoes", "{{permissao_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Permissao",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/permissoes/{{permissao_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["permissoes", "{{permissao_id}}"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Perfil-Permissoes",
+      "item": [
+        {
+          "name": "List Perfil-Permissoes",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/perfil-permissoes?perfil_id={{perfil_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["perfil-permissoes"],
+              "query": [
+                { "key": "perfil_id", "value": "{{perfil_id}}" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Create Perfil-Permissao",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"perfil_id\": {{perfil_id}},\n  \"permissao_id\": {{permissao_id}}\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/perfil-permissoes",
+              "host": ["{{base_url}}"],
+              "path": ["perfil-permissoes"]
+            }
+          }
+        },
+        {
+          "name": "Get Perfil-Permissao",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/perfil-permissoes/{{perfil_permissao_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["perfil-permissoes", "{{perfil_permissao_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Update Perfil-Permissao",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"perfil_id\": {{perfil_id}},\n  \"permissao_id\": {{permissao_id}}\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/perfil-permissoes/{{perfil_permissao_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["perfil-permissoes", "{{perfil_permissao_id}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete Perfil-Permissao",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Authorization", "value": "Bearer {{token}}" }
+            ],
+            "url": {
+              "raw": "{{base_url}}/perfil-permissoes/{{perfil_permissao_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["perfil-permissoes", "{{perfil_permissao_id}}"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
