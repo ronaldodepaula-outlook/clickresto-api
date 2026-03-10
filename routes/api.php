@@ -69,6 +69,9 @@ Route::prefix('v1')->group(function () {
     Route::middleware(['auth:api', 'empresa.ativa', 'check.admin'])->group(function () {
         Route::apiResource('empresas', EmpresaController::class);
         Route::apiResource('assinaturas', AssinaturaController::class);
+    });
+
+    Route::middleware(['auth:api', 'empresa.ativa', 'check.admin_empresa'])->group(function () {
         Route::apiResource('usuario-perfis', UsuarioPerfilController::class);
     });
 
