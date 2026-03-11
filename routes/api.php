@@ -139,6 +139,8 @@ Route::prefix('v1')->group(function () {
         Route::get('relatorios/vendas-produto', [RelatorioController::class, 'vendasProduto']);
         Route::get('relatorios/vendas-pagamento', [RelatorioController::class, 'vendasFormaPagamento']);
         Route::get('relatorios/ticket-medio', [RelatorioController::class, 'ticketMedio']);
+        Route::get('relatorios/pagamentos-dashboard', [RelatorioController::class, 'dashboardPagamentos']);
+        Route::get('relatorios/pagamentos-dashboard/export', [RelatorioController::class, 'exportPagamentosDashboard']);
         Route::get('relatorios/pedidos-por-canal', [RelatorioController::class, 'pedidosPorCanal']);
         Route::get('relatorios/movimentacoes-dia', [RelatorioController::class, 'movimentacoesDia']);
     });
