@@ -26,6 +26,7 @@ use App\Http\Controllers\Pedidos\PedidoItemController;
 use App\Http\Controllers\Pedidos\PedidoItemOpcaoController;
 use App\Http\Controllers\Cozinha\CozinhaEstacaoController;
 use App\Http\Controllers\Cozinha\CozinhaItemController;
+use App\Http\Controllers\Cozinha\CozinhaDashboardController;
 use App\Http\Controllers\Pagamentos\FormaPagamentoController;
 use App\Http\Controllers\Pagamentos\PagamentoController;
 use App\Http\Controllers\Caixa\CaixaController;
@@ -111,6 +112,7 @@ Route::prefix('v1')->group(function () {
         Route::apiResource('pedido-item-opcoes', PedidoItemOpcaoController::class);
 
         Route::apiResource('cozinha-estacoes', CozinhaEstacaoController::class);
+        Route::get('cozinha/indicadores', [CozinhaDashboardController::class, 'indicadores']);
         Route::get('cozinha-itens/pedidos', [CozinhaItemController::class, 'pedidos']);
         Route::get('cozinha-itens/pedidos-usuario', [CozinhaItemController::class, 'pedidosPorUsuario']);
         Route::get('cozinha-itens/pedidos-usuario-preparo', [CozinhaItemController::class, 'pedidosPreparoPorUsuario']);
