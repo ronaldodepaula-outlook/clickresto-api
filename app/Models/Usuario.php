@@ -26,6 +26,11 @@ class Usuario extends Authenticatable implements JWTSubject
         return $this->belongsTo(Empresa::class, 'empresa_id');
     }
 
+    public function perfis()
+    {
+        return $this->belongsToMany(Perfil::class, 'tb_usuario_perfis', 'usuario_id', 'perfil_id');
+    }
+
     public function getAuthPassword()
     {
         return $this->senha;

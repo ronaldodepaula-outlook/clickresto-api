@@ -352,7 +352,14 @@ class AuthController extends Controller
         $user->load([
             'empresa.plano',
             'empresa.usuarios',
+            'perfis' => function ($query) {
+                $query->select('tb_perfis.id', 'tb_perfis.nome', 'tb_perfis.descricao');
+            },
         ]);
+
+        if ($user->relationLoaded('perfis')) {
+            $user->perfis->makeHidden('pivot');
+        }
 
         $empresa = $user->empresa;
         if ($empresa) {
