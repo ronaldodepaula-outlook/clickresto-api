@@ -35,6 +35,7 @@ use App\Http\Controllers\Estoque\EstoqueController;
 use App\Http\Controllers\Estoque\EstoqueMovimentoController;
 use App\Http\Controllers\Configuracoes\ConfiguracaoController;
 use App\Http\Controllers\Relatorios\RelatorioController;
+use App\Http\Controllers\Relatorios\RelatorioAnaliticoController;
 use App\Http\Controllers\Notificacoes\NotificacaoController;
 
 Route::prefix('v1')->group(function () {
@@ -141,6 +142,7 @@ Route::prefix('v1')->group(function () {
         Route::get('relatorios/ticket-medio', [RelatorioController::class, 'ticketMedio']);
         Route::get('relatorios/pagamentos-dashboard', [RelatorioController::class, 'dashboardPagamentos']);
         Route::get('relatorios/pagamentos-dashboard/export', [RelatorioController::class, 'exportPagamentosDashboard']);
+        Route::get('relatorios/analiticos/{codigo}', [RelatorioAnaliticoController::class, 'executar']);
         Route::get('relatorios/pedidos-por-canal', [RelatorioController::class, 'pedidosPorCanal']);
         Route::get('relatorios/movimentacoes-dia', [RelatorioController::class, 'movimentacoesDia']);
     });

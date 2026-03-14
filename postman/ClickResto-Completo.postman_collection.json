@@ -1,7 +1,8 @@
 {
   "info": {
     "name": "ClickResto - Completo",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Colecao completa documentada para testes no Postman e referencia para integracoes.\n- Use {{base_url}} e {{token}}.\n- Para endpoints de empresa, envie X-Empresa-Id quando necessario.\n- Consulte a documentacao Swagger em public/swagger/index.html.\nDocumentacao padronizada para testes e integracoes."
   },
   "variable": [
     {
@@ -131,6 +132,30 @@
     {
       "key": "usuario_id",
       "value": "1"
+    },
+    {
+      "key": "data",
+      "value": "2026-03-13"
+    },
+    {
+      "key": "data_inicio",
+      "value": "2026-03-01"
+    },
+    {
+      "key": "data_fim",
+      "value": "2026-03-13"
+    },
+    {
+      "key": "tipo_filtro",
+      "value": "periodo"
+    },
+    {
+      "key": "tipo_agrupamento",
+      "value": "dia"
+    },
+    {
+      "key": "relatorio_codigo",
+      "value": "r01"
     }
   ],
   "item": [
@@ -149,7 +174,7 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"email\": \"{{admin_email}}\",\n  \"password\": \"{{admin_password}}\"\n}"
+              "raw": "{\n  \"email\": \"{{admin_email}}\",\n  \"senha\": \"{{admin_password}}\"\n}"
             },
             "url": {
               "raw": "{{base_url}}/auth/login",
@@ -161,7 +186,8 @@
                 "login"
               ]
             }
-          }
+          },
+          "description": "Metodo: POST\nEndpoint: {{base_url}}/auth/login\nAuth: Publico\nBody: raw\nRetorno: JSON"
         },
         {
           "name": "Register",
@@ -187,7 +213,8 @@
                 "register"
               ]
             }
-          }
+          },
+          "description": "Metodo: POST\nEndpoint: {{base_url}}/auth/register\nAuth: Publico\nBody: raw\nRetorno: JSON"
         },
         {
           "name": "Refresh",
@@ -213,7 +240,8 @@
                 "refresh"
               ]
             }
-          }
+          },
+          "description": "Metodo: POST\nEndpoint: {{base_url}}/auth/refresh\nAuth: Bearer {{token}}\nRetorno: JSON"
         },
         {
           "name": "Me",
@@ -235,7 +263,8 @@
                 "me"
               ]
             }
-          }
+          },
+          "description": "Metodo: GET\nEndpoint: {{base_url}}/auth/me\nAuth: Bearer {{token}}\nRetorno: JSON"
         },
         {
           "name": "Logout",
@@ -261,7 +290,8 @@
                 "logout"
               ]
             }
-          }
+          },
+          "description": "Metodo: POST\nEndpoint: {{base_url}}/auth/logout\nAuth: Bearer {{token}}\nRetorno: JSON"
         },
         {
           "name": "Public Cadastro",
@@ -287,7 +317,8 @@
                 "cadastro"
               ]
             }
-          }
+          },
+          "description": "Metodo: POST\nEndpoint: {{base_url}}/public/cadastro\nAuth: Publico\nBody: raw\nRetorno: JSON"
         },
         {
           "name": "Public Cadastro Trial",
@@ -313,7 +344,8 @@
                 "cadastro-trial"
               ]
             }
-          }
+          },
+          "description": "Metodo: POST\nEndpoint: {{base_url}}/public/cadastro-trial\nAuth: Publico\nBody: raw\nRetorno: JSON"
         },
         {
           "name": "Public Planos",
@@ -330,7 +362,8 @@
                 "planos"
               ]
             }
-          }
+          },
+          "description": "Metodo: GET\nEndpoint: {{base_url}}/public/planos\nAuth: Publico\nRetorno: JSON"
         },
         {
           "name": "Public Confirmar Email",
@@ -353,7 +386,8 @@
                 }
               ]
             }
-          }
+          },
+          "description": "Metodo: GET\nEndpoint: {{base_url}}/public/confirmar-email?token={{confirmacao_token}}\nAuth: Publico\nQuery: token\nRetorno: JSON"
         }
       ]
     },
@@ -382,7 +416,8 @@
                     "caixas"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/caixas\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Create Caixa",
@@ -411,7 +446,8 @@
                     "caixas"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/caixas\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Get Caixa",
@@ -433,7 +469,8 @@
                     "{{caixa_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/caixas/{{caixa_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Update Caixa",
@@ -463,7 +500,8 @@
                     "{{caixa_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: PUT\nEndpoint: {{base_url}}/caixas/{{caixa_id}}\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Delete Caixa",
@@ -485,7 +523,8 @@
                     "{{caixa_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: DELETE\nEndpoint: {{base_url}}/caixas/{{caixa_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Abrir Caixa",
@@ -515,7 +554,8 @@
                     "abrir"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/caixas/abrir\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Fechar Caixa",
@@ -546,7 +586,8 @@
                     "fechar"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/caixas/{{caixa_id}}/fechar\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             }
           ]
         },
@@ -572,7 +613,8 @@
                     "caixa-movimentos"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/caixa-movimentos\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Create Caixa-Movimento",
@@ -601,7 +643,8 @@
                     "caixa-movimentos"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/caixa-movimentos\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Get Caixa-Movimento",
@@ -623,7 +666,8 @@
                     "{{caixa_movimento_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/caixa-movimentos/{{caixa_movimento_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Update Caixa-Movimento",
@@ -653,7 +697,8 @@
                     "{{caixa_movimento_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: PUT\nEndpoint: {{base_url}}/caixa-movimentos/{{caixa_movimento_id}}\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Delete Caixa-Movimento",
@@ -675,7 +720,8 @@
                     "{{caixa_movimento_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: DELETE\nEndpoint: {{base_url}}/caixa-movimentos/{{caixa_movimento_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             }
           ]
         }
@@ -706,7 +752,8 @@
                     "clientes"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/clientes\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Create Cliente",
@@ -735,7 +782,8 @@
                     "clientes"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/clientes\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Get Cliente",
@@ -757,7 +805,8 @@
                     "{{cliente_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/clientes/{{cliente_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Update Cliente",
@@ -787,7 +836,8 @@
                     "{{cliente_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: PUT\nEndpoint: {{base_url}}/clientes/{{cliente_id}}\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Delete Cliente",
@@ -809,7 +859,8 @@
                     "{{cliente_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: DELETE\nEndpoint: {{base_url}}/clientes/{{cliente_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             }
           ]
         },
@@ -835,7 +886,8 @@
                     "cliente-enderecos"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/cliente-enderecos\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Create Cliente-Endereco",
@@ -864,7 +916,8 @@
                     "cliente-enderecos"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/cliente-enderecos\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Get Cliente-Endereco",
@@ -886,7 +939,8 @@
                     "{{cliente_endereco_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/cliente-enderecos/{{cliente_endereco_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Update Cliente-Endereco",
@@ -916,7 +970,8 @@
                     "{{cliente_endereco_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: PUT\nEndpoint: {{base_url}}/cliente-enderecos/{{cliente_endereco_id}}\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Delete Cliente-Endereco",
@@ -938,7 +993,8 @@
                     "{{cliente_endereco_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: DELETE\nEndpoint: {{base_url}}/cliente-enderecos/{{cliente_endereco_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             }
           ]
         }
@@ -966,7 +1022,8 @@
                 "comandas"
               ]
             }
-          }
+          },
+          "description": "Metodo: GET\nEndpoint: {{base_url}}/comandas\nAuth: Bearer {{token}}\nRetorno: JSON"
         },
         {
           "name": "Create Comanda",
@@ -995,7 +1052,8 @@
                 "comandas"
               ]
             }
-          }
+          },
+          "description": "Metodo: POST\nEndpoint: {{base_url}}/comandas\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
         },
         {
           "name": "Get Comanda",
@@ -1017,7 +1075,8 @@
                 "{{comanda_id}}"
               ]
             }
-          }
+          },
+          "description": "Metodo: GET\nEndpoint: {{base_url}}/comandas/{{comanda_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
         },
         {
           "name": "Update Comanda",
@@ -1047,7 +1106,8 @@
                 "{{comanda_id}}"
               ]
             }
-          }
+          },
+          "description": "Metodo: PUT\nEndpoint: {{base_url}}/comandas/{{comanda_id}}\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
         },
         {
           "name": "Delete Comanda",
@@ -1069,7 +1129,8 @@
                 "{{comanda_id}}"
               ]
             }
-          }
+          },
+          "description": "Metodo: DELETE\nEndpoint: {{base_url}}/comandas/{{comanda_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
         }
       ]
     },
@@ -1095,7 +1156,8 @@
                 "configuracoes"
               ]
             }
-          }
+          },
+          "description": "Metodo: GET\nEndpoint: {{base_url}}/configuracoes\nAuth: Bearer {{token}}\nRetorno: JSON"
         },
         {
           "name": "Create Configuracao",
@@ -1124,7 +1186,8 @@
                 "configuracoes"
               ]
             }
-          }
+          },
+          "description": "Metodo: POST\nEndpoint: {{base_url}}/configuracoes\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
         },
         {
           "name": "Get Configuracao",
@@ -1146,7 +1209,8 @@
                 "{{configuracao_id}}"
               ]
             }
-          }
+          },
+          "description": "Metodo: GET\nEndpoint: {{base_url}}/configuracoes/{{configuracao_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
         },
         {
           "name": "Update Configuracao",
@@ -1176,7 +1240,8 @@
                 "{{configuracao_id}}"
               ]
             }
-          }
+          },
+          "description": "Metodo: PUT\nEndpoint: {{base_url}}/configuracoes/{{configuracao_id}}\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
         },
         {
           "name": "Delete Configuracao",
@@ -1198,7 +1263,8 @@
                 "{{configuracao_id}}"
               ]
             }
-          }
+          },
+          "description": "Metodo: DELETE\nEndpoint: {{base_url}}/configuracoes/{{configuracao_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
         }
       ]
     },
@@ -1227,7 +1293,8 @@
                     "cozinha-estacoes"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/cozinha-estacoes\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Create Cozinha-Estacao",
@@ -1256,7 +1323,8 @@
                     "cozinha-estacoes"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/cozinha-estacoes\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Get Cozinha-Estacao",
@@ -1278,7 +1346,8 @@
                     "{{cozinha_estacao_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/cozinha-estacoes/{{cozinha_estacao_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Update Cozinha-Estacao",
@@ -1308,7 +1377,8 @@
                     "{{cozinha_estacao_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: PUT\nEndpoint: {{base_url}}/cozinha-estacoes/{{cozinha_estacao_id}}\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Delete Cozinha-Estacao",
@@ -1330,7 +1400,8 @@
                     "{{cozinha_estacao_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: DELETE\nEndpoint: {{base_url}}/cozinha-estacoes/{{cozinha_estacao_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             }
           ]
         },
@@ -1356,7 +1427,8 @@
                     "cozinha-itens"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/cozinha-itens\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Create Cozinha-Item",
@@ -1385,7 +1457,8 @@
                     "cozinha-itens"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/cozinha-itens\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Get Cozinha-Item",
@@ -1407,7 +1480,8 @@
                     "{{cozinha_item_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/cozinha-itens/{{cozinha_item_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Update Cozinha-Item",
@@ -1437,7 +1511,8 @@
                     "{{cozinha_item_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: PUT\nEndpoint: {{base_url}}/cozinha-itens/{{cozinha_item_id}}\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Delete Cozinha-Item",
@@ -1459,7 +1534,8 @@
                     "{{cozinha_item_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: DELETE\nEndpoint: {{base_url}}/cozinha-itens/{{cozinha_item_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Atualizar Status Cozinha-Item",
@@ -1490,9 +1566,39 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: PATCH\nEndpoint: {{base_url}}/cozinha-itens/{{cozinha_item_id}}/status\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             }
           ]
+        },
+        {
+          "name": "Indicadores Cozinha",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/cozinha/indicadores?data={{data}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "cozinha",
+                "indicadores"
+              ],
+              "query": [
+                {
+                  "key": "data",
+                  "value": "{{data}}"
+                }
+              ]
+            }
+          },
+          "description": "Metodo: GET\nEndpoint: {{base_url}}/cozinha/indicadores?data={{data}}\nAuth: Bearer {{token}}\nQuery: data\nRetorno: JSON"
         }
       ]
     },
@@ -1521,7 +1627,8 @@
                     "entregadores"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/entregadores\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Create Entregador",
@@ -1550,7 +1657,8 @@
                     "entregadores"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/entregadores\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Get Entregador",
@@ -1572,7 +1680,8 @@
                     "{{entregador_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/entregadores/{{entregador_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Update Entregador",
@@ -1602,7 +1711,8 @@
                     "{{entregador_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: PUT\nEndpoint: {{base_url}}/entregadores/{{entregador_id}}\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Delete Entregador",
@@ -1624,7 +1734,8 @@
                     "{{entregador_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: DELETE\nEndpoint: {{base_url}}/entregadores/{{entregador_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             }
           ]
         },
@@ -1650,7 +1761,8 @@
                     "entregas"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/entregas\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Create Entrega",
@@ -1679,7 +1791,8 @@
                     "entregas"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/entregas\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Get Entrega",
@@ -1701,7 +1814,8 @@
                     "{{entrega_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/entregas/{{entrega_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Update Entrega",
@@ -1731,7 +1845,8 @@
                     "{{entrega_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: PUT\nEndpoint: {{base_url}}/entregas/{{entrega_id}}\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Delete Entrega",
@@ -1753,7 +1868,8 @@
                     "{{entrega_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: DELETE\nEndpoint: {{base_url}}/entregas/{{entrega_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             }
           ]
         }
@@ -1786,7 +1902,8 @@
                   ]
                 },
                 "description": "Lista todas as empresas com usuÃ¡rios, plano e status da assinatura (apenas para admin_master)"
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/empresas/admin-list\nAuth: Bearer {{token}}\nRetorno: JSON"
             }
           ]
         },
@@ -1813,7 +1930,8 @@
                   ]
                 },
                 "description": "Planos Ã© um recurso global de admin"
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/planos\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Create Plano",
@@ -1842,7 +1960,8 @@
                     "planos"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/planos\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Get Plano",
@@ -1864,7 +1983,8 @@
                     "{{plano_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/planos/{{plano_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Update Plano",
@@ -1894,7 +2014,8 @@
                     "{{plano_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: PUT\nEndpoint: {{base_url}}/planos/{{plano_id}}\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Delete Plano",
@@ -1916,7 +2037,8 @@
                     "{{plano_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: DELETE\nEndpoint: {{base_url}}/planos/{{plano_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             }
           ]
         },
@@ -1943,7 +2065,8 @@
                   ]
                 },
                 "description": "Perfis Ã© um recurso global de admin"
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/perfis\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Create Perfil",
@@ -1972,7 +2095,8 @@
                     "perfis"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/perfis\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Get Perfil",
@@ -1994,7 +2118,8 @@
                     "{{perfil_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/perfis/{{perfil_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Update Perfil",
@@ -2024,7 +2149,8 @@
                     "{{perfil_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: PUT\nEndpoint: {{base_url}}/perfis/{{perfil_id}}\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Delete Perfil",
@@ -2046,7 +2172,8 @@
                     "{{perfil_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: DELETE\nEndpoint: {{base_url}}/perfis/{{perfil_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             }
           ]
         },
@@ -2073,7 +2200,8 @@
                   ]
                 },
                 "description": "Permissoes Ã© um recurso global de admin"
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/permissoes\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Create Permissao",
@@ -2102,7 +2230,8 @@
                     "permissoes"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/permissoes\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Get Permissao",
@@ -2124,7 +2253,8 @@
                     "{{permissao_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/permissoes/{{permissao_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Update Permissao",
@@ -2154,7 +2284,8 @@
                     "{{permissao_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: PUT\nEndpoint: {{base_url}}/permissoes/{{permissao_id}}\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Delete Permissao",
@@ -2176,7 +2307,8 @@
                     "{{permissao_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: DELETE\nEndpoint: {{base_url}}/permissoes/{{permissao_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             }
           ]
         },
@@ -2203,7 +2335,8 @@
                   ]
                 },
                 "description": "Perfil-Permissoes Ã© um recurso global de admin"
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/perfil-permissoes\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Create Perfil-Permissao",
@@ -2232,7 +2365,8 @@
                     "perfil-permissoes"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/perfil-permissoes\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Get Perfil-Permissao",
@@ -2254,7 +2388,8 @@
                     "{{perfil_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/perfil-permissoes/{{perfil_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Update Perfil-Permissao",
@@ -2284,7 +2419,8 @@
                     "{{perfil_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: PUT\nEndpoint: {{base_url}}/perfil-permissoes/{{perfil_id}}\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Delete Perfil-Permissao",
@@ -2306,7 +2442,8 @@
                     "{{perfil_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: DELETE\nEndpoint: {{base_url}}/perfil-permissoes/{{perfil_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             }
           ]
         },
@@ -2332,7 +2469,8 @@
                     "empresas"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/empresas\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Create Empresa",
@@ -2361,7 +2499,8 @@
                     "empresas"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/empresas\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Get Empresa",
@@ -2383,7 +2522,8 @@
                     "{{empresa_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/empresas/{{empresa_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Update Empresa",
@@ -2413,7 +2553,8 @@
                     "{{empresa_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: PUT\nEndpoint: {{base_url}}/empresas/{{empresa_id}}\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Delete Empresa",
@@ -2435,7 +2576,8 @@
                     "{{empresa_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: DELETE\nEndpoint: {{base_url}}/empresas/{{empresa_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             }
           ]
         },
@@ -2461,7 +2603,8 @@
                     "assinaturas"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/assinaturas\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Create Assinatura",
@@ -2490,7 +2633,8 @@
                     "assinaturas"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/assinaturas\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Get Assinatura",
@@ -2512,7 +2656,8 @@
                     "{{assinatura_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/assinaturas/{{assinatura_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Update Assinatura",
@@ -2542,7 +2687,8 @@
                     "{{assinatura_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: PUT\nEndpoint: {{base_url}}/assinaturas/{{assinatura_id}}\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Delete Assinatura",
@@ -2564,7 +2710,8 @@
                     "{{assinatura_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: DELETE\nEndpoint: {{base_url}}/assinaturas/{{assinatura_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             }
           ]
         }
@@ -2595,7 +2742,8 @@
                     "estoque"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/estoque\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Create Estoque",
@@ -2624,7 +2772,8 @@
                     "estoque"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/estoque\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Get Estoque",
@@ -2646,7 +2795,8 @@
                     "{{estoque_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/estoque/{{estoque_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Update Estoque",
@@ -2676,7 +2826,8 @@
                     "{{estoque_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: PUT\nEndpoint: {{base_url}}/estoque/{{estoque_id}}\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Delete Estoque",
@@ -2698,7 +2849,8 @@
                     "{{estoque_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: DELETE\nEndpoint: {{base_url}}/estoque/{{estoque_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             }
           ]
         },
@@ -2724,7 +2876,8 @@
                     "estoque-movimentos"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/estoque-movimentos\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Create Estoque-Movimento",
@@ -2753,7 +2906,8 @@
                     "estoque-movimentos"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/estoque-movimentos\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Get Estoque-Movimento",
@@ -2775,7 +2929,8 @@
                     "{{estoque_movimento_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/estoque-movimentos/{{estoque_movimento_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Update Estoque-Movimento",
@@ -2805,7 +2960,8 @@
                     "{{estoque_movimento_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: PUT\nEndpoint: {{base_url}}/estoque-movimentos/{{estoque_movimento_id}}\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Delete Estoque-Movimento",
@@ -2827,7 +2983,8 @@
                     "{{estoque_movimento_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: DELETE\nEndpoint: {{base_url}}/estoque-movimentos/{{estoque_movimento_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             }
           ]
         }
@@ -2855,7 +3012,8 @@
                 "mesas"
               ]
             }
-          }
+          },
+          "description": "Metodo: GET\nEndpoint: {{base_url}}/mesas\nAuth: Bearer {{token}}\nRetorno: JSON"
         },
         {
           "name": "Create Mesa",
@@ -2884,7 +3042,8 @@
                 "mesas"
               ]
             }
-          }
+          },
+          "description": "Metodo: POST\nEndpoint: {{base_url}}/mesas\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
         },
         {
           "name": "Get Mesa",
@@ -2906,7 +3065,8 @@
                 "{{mesa_id}}"
               ]
             }
-          }
+          },
+          "description": "Metodo: GET\nEndpoint: {{base_url}}/mesas/{{mesa_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
         },
         {
           "name": "Update Mesa",
@@ -2936,7 +3096,8 @@
                 "{{mesa_id}}"
               ]
             }
-          }
+          },
+          "description": "Metodo: PUT\nEndpoint: {{base_url}}/mesas/{{mesa_id}}\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
         },
         {
           "name": "Delete Mesa",
@@ -2958,7 +3119,8 @@
                 "{{mesa_id}}"
               ]
             }
-          }
+          },
+          "description": "Metodo: DELETE\nEndpoint: {{base_url}}/mesas/{{mesa_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
         }
       ]
     },
@@ -2987,7 +3149,8 @@
                     "formas-pagamento"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/formas-pagamento\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Create Forma-Pagamento",
@@ -3016,7 +3179,8 @@
                     "formas-pagamento"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/formas-pagamento\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Get Forma-Pagamento",
@@ -3038,7 +3202,8 @@
                     "{{forma_pagamento_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/formas-pagamento/{{forma_pagamento_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Update Forma-Pagamento",
@@ -3068,7 +3233,8 @@
                     "{{forma_pagamento_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: PUT\nEndpoint: {{base_url}}/formas-pagamento/{{forma_pagamento_id}}\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Delete Forma-Pagamento",
@@ -3090,7 +3256,8 @@
                     "{{forma_pagamento_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: DELETE\nEndpoint: {{base_url}}/formas-pagamento/{{forma_pagamento_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             }
           ]
         },
@@ -3116,7 +3283,8 @@
                     "pagamentos"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/pagamentos\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Create Pagamento",
@@ -3145,7 +3313,8 @@
                     "pagamentos"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/pagamentos\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Get Pagamento",
@@ -3167,7 +3336,8 @@
                     "{{pagamento_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/pagamentos/{{pagamento_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Update Pagamento",
@@ -3197,7 +3367,8 @@
                     "{{pagamento_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: PUT\nEndpoint: {{base_url}}/pagamentos/{{pagamento_id}}\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Delete Pagamento",
@@ -3219,7 +3390,8 @@
                     "{{pagamento_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: DELETE\nEndpoint: {{base_url}}/pagamentos/{{pagamento_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             }
           ]
         }
@@ -3250,7 +3422,8 @@
                     "pedidos"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/pedidos\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Create Pedido",
@@ -3279,7 +3452,8 @@
                     "pedidos"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/pedidos\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Get Pedido",
@@ -3301,7 +3475,8 @@
                     "{{pedido_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/pedidos/{{pedido_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Update Pedido",
@@ -3331,7 +3506,8 @@
                     "{{pedido_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: PUT\nEndpoint: {{base_url}}/pedidos/{{pedido_id}}\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Delete Pedido",
@@ -3353,7 +3529,8 @@
                     "{{pedido_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: DELETE\nEndpoint: {{base_url}}/pedidos/{{pedido_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Abrir Pedido",
@@ -3383,7 +3560,8 @@
                     "abrir"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/pedidos/abrir\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Adicionar Item ao Pedido",
@@ -3414,7 +3592,8 @@
                     "itens"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/pedidos/{{pedido_id}}/itens\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Enviar Pedido para Cozinha",
@@ -3445,7 +3624,8 @@
                     "enviar-cozinha"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/pedidos/{{pedido_id}}/enviar-cozinha\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Atualizar Status do Pedido",
@@ -3476,7 +3656,8 @@
                     "status"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: PATCH\nEndpoint: {{base_url}}/pedidos/{{pedido_id}}/status\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Fechar Pedido",
@@ -3507,7 +3688,8 @@
                     "fechar"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/pedidos/{{pedido_id}}/fechar\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             }
           ]
         },
@@ -3533,7 +3715,8 @@
                     "pedido-itens"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/pedido-itens\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Create Pedido-Item",
@@ -3562,7 +3745,8 @@
                     "pedido-itens"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/pedido-itens\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Get Pedido-Item",
@@ -3584,7 +3768,8 @@
                     "{{pedido_item_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/pedido-itens/{{pedido_item_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Update Pedido-Item",
@@ -3614,7 +3799,8 @@
                     "{{pedido_item_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: PUT\nEndpoint: {{base_url}}/pedido-itens/{{pedido_item_id}}\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Delete Pedido-Item",
@@ -3636,7 +3822,8 @@
                     "{{pedido_item_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: DELETE\nEndpoint: {{base_url}}/pedido-itens/{{pedido_item_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             }
           ]
         },
@@ -3662,7 +3849,8 @@
                     "pedido-item-opcoes"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/pedido-item-opcoes\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Create Pedido-Item-Opcao",
@@ -3691,7 +3879,8 @@
                     "pedido-item-opcoes"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/pedido-item-opcoes\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Get Pedido-Item-Opcao",
@@ -3713,7 +3902,8 @@
                     "{{pedido_item_opcao_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/pedido-item-opcoes/{{pedido_item_opcao_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Update Pedido-Item-Opcao",
@@ -3743,7 +3933,8 @@
                     "{{pedido_item_opcao_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: PUT\nEndpoint: {{base_url}}/pedido-item-opcoes/{{pedido_item_opcao_id}}\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Delete Pedido-Item-Opcao",
@@ -3765,7 +3956,8 @@
                     "{{pedido_item_opcao_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: DELETE\nEndpoint: {{base_url}}/pedido-item-opcoes/{{pedido_item_opcao_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             }
           ]
         }
@@ -3796,7 +3988,8 @@
                     "categorias"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/categorias\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Create Categoria",
@@ -3825,7 +4018,8 @@
                     "categorias"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/categorias\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Get Categoria",
@@ -3847,7 +4041,8 @@
                     "{{categoria_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/categorias/{{categoria_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Update Categoria",
@@ -3877,7 +4072,8 @@
                     "{{categoria_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: PUT\nEndpoint: {{base_url}}/categorias/{{categoria_id}}\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Delete Categoria",
@@ -3899,7 +4095,8 @@
                     "{{categoria_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: DELETE\nEndpoint: {{base_url}}/categorias/{{categoria_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             }
           ]
         },
@@ -3925,7 +4122,8 @@
                     "produtos"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/produtos\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Create Produto",
@@ -3954,7 +4152,8 @@
                     "produtos"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/produtos\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Get Produto",
@@ -3976,7 +4175,8 @@
                     "{{produto_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/produtos/{{produto_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Update Produto",
@@ -4006,7 +4206,8 @@
                     "{{produto_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: PUT\nEndpoint: {{base_url}}/produtos/{{produto_id}}\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Delete Produto",
@@ -4028,7 +4229,8 @@
                     "{{produto_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: DELETE\nEndpoint: {{base_url}}/produtos/{{produto_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             }
           ]
         },
@@ -4054,7 +4256,8 @@
                     "produto-imagens"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/produto-imagens\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Create Produto-Imagem",
@@ -4083,7 +4286,8 @@
                     "produto-imagens"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/produto-imagens\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Get Produto-Imagem",
@@ -4105,7 +4309,8 @@
                     "{{produto_imagem_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/produto-imagens/{{produto_imagem_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Update Produto-Imagem",
@@ -4135,7 +4340,8 @@
                     "{{produto_imagem_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: PUT\nEndpoint: {{base_url}}/produto-imagens/{{produto_imagem_id}}\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Delete Produto-Imagem",
@@ -4157,7 +4363,8 @@
                     "{{produto_imagem_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: DELETE\nEndpoint: {{base_url}}/produto-imagens/{{produto_imagem_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             }
           ]
         },
@@ -4183,7 +4390,8 @@
                     "produto-opcoes"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/produto-opcoes\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Create Produto-Opcao",
@@ -4212,7 +4420,8 @@
                     "produto-opcoes"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/produto-opcoes\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Get Produto-Opcao",
@@ -4234,7 +4443,8 @@
                     "{{produto_opcao_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/produto-opcoes/{{produto_opcao_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Update Produto-Opcao",
@@ -4264,7 +4474,8 @@
                     "{{produto_opcao_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: PUT\nEndpoint: {{base_url}}/produto-opcoes/{{produto_opcao_id}}\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Delete Produto-Opcao",
@@ -4286,7 +4497,8 @@
                     "{{produto_opcao_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: DELETE\nEndpoint: {{base_url}}/produto-opcoes/{{produto_opcao_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             }
           ]
         },
@@ -4312,7 +4524,8 @@
                     "produto-opcao-itens"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/produto-opcao-itens\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Create Produto-Opcao-Item",
@@ -4341,7 +4554,8 @@
                     "produto-opcao-itens"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/produto-opcao-itens\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Get Produto-Opcao-Item",
@@ -4363,7 +4577,8 @@
                     "{{produto_opcao_item_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/produto-opcao-itens/{{produto_opcao_item_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Update Produto-Opcao-Item",
@@ -4393,7 +4608,8 @@
                     "{{produto_opcao_item_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: PUT\nEndpoint: {{base_url}}/produto-opcao-itens/{{produto_opcao_item_id}}\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Delete Produto-Opcao-Item",
@@ -4415,7 +4631,8 @@
                     "{{produto_opcao_item_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: DELETE\nEndpoint: {{base_url}}/produto-opcao-itens/{{produto_opcao_item_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             }
           ]
         }
@@ -4444,7 +4661,8 @@
                 "vendas-dia"
               ]
             }
-          }
+          },
+          "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/vendas-dia\nAuth: Bearer {{token}}\nRetorno: JSON"
         },
         {
           "name": "Vendas por Produto",
@@ -4466,7 +4684,8 @@
                 "vendas-produto"
               ]
             }
-          }
+          },
+          "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/vendas-produto\nAuth: Bearer {{token}}\nRetorno: JSON"
         },
         {
           "name": "Vendas por Forma de Pagamento",
@@ -4488,7 +4707,8 @@
                 "vendas-pagamento"
               ]
             }
-          }
+          },
+          "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/vendas-pagamento\nAuth: Bearer {{token}}\nRetorno: JSON"
         },
         {
           "name": "Ticket Medio",
@@ -4510,7 +4730,8 @@
                 "ticket-medio"
               ]
             }
-          }
+          },
+          "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/ticket-medio\nAuth: Bearer {{token}}\nRetorno: JSON"
         },
         {
           "name": "Pedidos por Canal",
@@ -4532,7 +4753,2101 @@
                 "pedidos-por-canal"
               ]
             }
-          }
+          },
+          "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/pedidos-por-canal\nAuth: Bearer {{token}}\nRetorno: JSON"
+        },
+        {
+          "name": "Pagamentos Dashboard",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/relatorios/pagamentos-dashboard?periodo={{tipo_filtro}}&data={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "relatorios",
+                "pagamentos-dashboard"
+              ],
+              "query": [
+                {
+                  "key": "periodo",
+                  "value": "{{tipo_filtro}}"
+                },
+                {
+                  "key": "data",
+                  "value": "{{data}}"
+                },
+                {
+                  "key": "data_inicio",
+                  "value": "{{data_inicio}}"
+                },
+                {
+                  "key": "data_fim",
+                  "value": "{{data_fim}}"
+                }
+              ]
+            }
+          },
+          "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/pagamentos-dashboard?periodo={{tipo_filtro}}&data={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nQuery: periodo, data, data_inicio, data_fim\nRetorno: JSON"
+        },
+        {
+          "name": "Pagamentos Dashboard Export",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/relatorios/pagamentos-dashboard/export?periodo={{tipo_filtro}}&data={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}&formato=csv",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "relatorios",
+                "pagamentos-dashboard",
+                "export"
+              ],
+              "query": [
+                {
+                  "key": "periodo",
+                  "value": "{{tipo_filtro}}"
+                },
+                {
+                  "key": "data",
+                  "value": "{{data}}"
+                },
+                {
+                  "key": "data_inicio",
+                  "value": "{{data_inicio}}"
+                },
+                {
+                  "key": "data_fim",
+                  "value": "{{data_fim}}"
+                },
+                {
+                  "key": "formato",
+                  "value": "csv"
+                }
+              ]
+            }
+          },
+          "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/pagamentos-dashboard/export?periodo={{tipo_filtro}}&data={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}&formato=csv\nAuth: Bearer {{token}}\nQuery: periodo, data, data_inicio, data_fim, formato\nRetorno: JSON"
+        },
+        {
+          "name": "Relatorios Analiticos",
+          "item": [
+            {
+              "name": "R01",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r01?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r01"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r01?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R02",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r02?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r02"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r02?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R03",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r03?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r03"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r03?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R04",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r04?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r04"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r04?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R05",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r05?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r05"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r05?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R06",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r06?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r06"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r06?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R07",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r07?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r07"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r07?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R08",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r08?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r08"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r08?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R09",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r09?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r09"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r09?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R10",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r10?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r10"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r10?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R11",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r11?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r11"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r11?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R12",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r12?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r12"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r12?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R13",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r13?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r13"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r13?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R14",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r14?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r14"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r14?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R15",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r15?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r15"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r15?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R16",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r16?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r16"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r16?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R17",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r17?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r17"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r17?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R18",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r18?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r18"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r18?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R19",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r19?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r19"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r19?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R20",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r20?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r20"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r20?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R21",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r21?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r21"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r21?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R22",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r22?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r22"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r22?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R23",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r23?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r23"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r23?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R24",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r24?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r24"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r24?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R25",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r25?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r25"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r25?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R26",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r26?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r26"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r26?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R27",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r27?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r27"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r27?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R28",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r28?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r28"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r28?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R29",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r29?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r29"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r29?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R30",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r30?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r30"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r30?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R31",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r31?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r31"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r31?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R32",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r32?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r32"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r32?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R33",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r33?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r33"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r33?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R34",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r34?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r34"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r34?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R35",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r35?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r35"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r35?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R36",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r36?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r36"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r36?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R37",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r37?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r37"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r37?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R38",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r38?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r38"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r38?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R39",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r39?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r39"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r39?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            },
+            {
+              "name": "R40",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "Bearer {{token}}"
+                  },
+                  {
+                    "key": "X-Empresa-Id",
+                    "value": "{{empresa_id}}"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/relatorios/analiticos/r40?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}",
+                  "host": [
+                    "{{base_url}}"
+                  ],
+                  "path": [
+                    "relatorios",
+                    "analiticos",
+                    "r40"
+                  ],
+                  "query": [
+                    {
+                      "key": "tipo_filtro",
+                      "value": "{{tipo_filtro}}"
+                    },
+                    {
+                      "key": "tipo_agrupamento",
+                      "value": "{{tipo_agrupamento}}"
+                    },
+                    {
+                      "key": "dia_ref",
+                      "value": "{{data}}"
+                    },
+                    {
+                      "key": "data_inicio",
+                      "value": "{{data_inicio}}"
+                    },
+                    {
+                      "key": "data_fim",
+                      "value": "{{data_fim}}"
+                    }
+                  ]
+                }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/relatorios/analiticos/r40?tipo_filtro={{tipo_filtro}}&tipo_agrupamento={{tipo_agrupamento}}&dia_ref={{data}}&data_inicio={{data_inicio}}&data_fim={{data_fim}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: tipo_filtro, tipo_agrupamento, dia_ref, data_inicio, data_fim\nRetorno: JSON"
+            }
+          ],
+          "description": "Relatorios R01-R40 com filtros iguais ao script analitico."
         }
       ]
     },
@@ -4562,7 +6877,8 @@
                   ]
                 },
                 "description": "Usuario-Perfis Ã© especÃ­fico de empresa"
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/usuario-perfis\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Create Usuario-Perfil",
@@ -4591,7 +6907,8 @@
                     "usuario-perfis"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/usuario-perfis\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Get Usuario-Perfil",
@@ -4613,7 +6930,8 @@
                     "{{usuario_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/usuario-perfis/{{usuario_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Update Usuario-Perfil",
@@ -4643,7 +6961,8 @@
                     "{{usuario_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: PUT\nEndpoint: {{base_url}}/usuario-perfis/{{usuario_id}}\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Delete Usuario-Perfil",
@@ -4665,7 +6984,8 @@
                     "{{usuario_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: DELETE\nEndpoint: {{base_url}}/usuario-perfis/{{usuario_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             }
           ]
         },
@@ -4691,7 +7011,8 @@
                     "usuarios"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/usuarios\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Create Usuario",
@@ -4720,7 +7041,8 @@
                     "usuarios"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: POST\nEndpoint: {{base_url}}/usuarios\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Get Usuario",
@@ -4742,7 +7064,8 @@
                     "{{usuario_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: GET\nEndpoint: {{base_url}}/usuarios/{{usuario_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             },
             {
               "name": "Update Usuario",
@@ -4772,7 +7095,8 @@
                     "{{usuario_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: PUT\nEndpoint: {{base_url}}/usuarios/{{usuario_id}}\nAuth: Bearer {{token}}\nBody: raw\nRetorno: JSON"
             },
             {
               "name": "Delete Usuario",
@@ -4794,7 +7118,8 @@
                     "{{usuario_id}}"
                   ]
                 }
-              }
+              },
+              "description": "Metodo: DELETE\nEndpoint: {{base_url}}/usuarios/{{usuario_id}}\nAuth: Bearer {{token}}\nRetorno: JSON"
             }
           ]
         }
@@ -4832,7 +7157,8 @@
                 }
               ]
             }
-          }
+          },
+          "description": "Metodo: GET\nEndpoint: {{base_url}}/mesas?status=livre\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: status\nRetorno: JSON"
         },
         {
           "name": "Criar Comanda",
@@ -4865,7 +7191,8 @@
                 "comandas"
               ]
             }
-          }
+          },
+          "description": "Metodo: POST\nEndpoint: {{base_url}}/comandas\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nBody: raw\nRetorno: JSON"
         },
         {
           "name": "Abrir Pedido",
@@ -4899,7 +7226,8 @@
                 "abrir"
               ]
             }
-          }
+          },
+          "description": "Metodo: POST\nEndpoint: {{base_url}}/pedidos/abrir\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nBody: raw\nRetorno: JSON"
         },
         {
           "name": "Listar Categorias",
@@ -4924,7 +7252,8 @@
                 "categorias"
               ]
             }
-          }
+          },
+          "description": "Metodo: GET\nEndpoint: {{base_url}}/categorias\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nRetorno: JSON"
         },
         {
           "name": "Listar Itens por Categoria",
@@ -4950,7 +7279,8 @@
                 "{{categoria_id}}"
               ]
             }
-          }
+          },
+          "description": "Metodo: GET\nEndpoint: {{base_url}}/prod_categorias/{{categoria_id}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nRetorno: JSON"
         },
         {
           "name": "Adicionar Item ao Pedido",
@@ -4985,7 +7315,8 @@
                 "itens"
               ]
             }
-          }
+          },
+          "description": "Metodo: POST\nEndpoint: {{base_url}}/pedidos/{{pedido_id}}/itens\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nBody: raw\nRetorno: JSON"
         },
         {
           "name": "Adicionar Complemento (Opcao)",
@@ -5018,7 +7349,8 @@
                 "pedido-item-opcoes"
               ]
             }
-          }
+          },
+          "description": "Metodo: POST\nEndpoint: {{base_url}}/pedido-item-opcoes\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nBody: raw\nRetorno: JSON"
         },
         {
           "name": "Listar Itens do Pedido",
@@ -5049,7 +7381,8 @@
                 }
               ]
             }
-          }
+          },
+          "description": "Metodo: GET\nEndpoint: {{base_url}}/pedido-itens?pedido_id={{pedido_id}}\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nQuery: pedido_id\nRetorno: JSON"
         },
         {
           "name": "Listar Formas de Pagamento",
@@ -5074,7 +7407,8 @@
                 "formas-pagamento"
               ]
             }
-          }
+          },
+          "description": "Metodo: GET\nEndpoint: {{base_url}}/formas-pagamento\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nRetorno: JSON"
         },
         {
           "name": "Registrar Pagamento",
@@ -5107,7 +7441,8 @@
                 "pagamentos"
               ]
             }
-          }
+          },
+          "description": "Metodo: POST\nEndpoint: {{base_url}}/pagamentos\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nBody: raw\nRetorno: JSON"
         },
         {
           "name": "Fechar Pedido",
@@ -5134,7 +7469,8 @@
                 "fechar"
               ]
             }
-          }
+          },
+          "description": "Metodo: POST\nEndpoint: {{base_url}}/pedidos/{{pedido_id}}/fechar\nAuth: Bearer {{token}}\nHeader: X-Empresa-Id obrigatorio para escopo de empresa.\nRetorno: JSON"
         }
       ]
     }

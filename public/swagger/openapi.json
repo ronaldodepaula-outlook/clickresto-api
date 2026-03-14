@@ -1348,6 +1348,12 @@
                   "items": {
                     "$ref": "#/components/schemas/Plano"
                   }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
+                  }
                 }
               }
             }
@@ -1381,6 +1387,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Plano"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -1416,6 +1428,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Plano"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -1459,6 +1477,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Plano"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -1487,7 +1511,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -1512,6 +1549,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/Empresa"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -1546,6 +1589,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Empresa"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -1581,6 +1630,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Empresa"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -1624,6 +1679,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Empresa"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -1652,7 +1713,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -1770,6 +1844,26 @@
                       "type": "integer"
                     }
                   }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {
+                      "current_page": 0,
+                      "data": [],
+                      "first_page_url": "",
+                      "from": 0,
+                      "last_page": 0,
+                      "last_page_url": "",
+                      "links": [],
+                      "next_page_url": "",
+                      "path": "",
+                      "per_page": 0,
+                      "prev_page_url": "",
+                      "to": 0,
+                      "total": 0
+                    }
+                  }
                 }
               }
             }
@@ -1821,6 +1915,19 @@
                     },
                     "licencas_ativas": {
                       "type": "integer"
+                    }
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {
+                      "total_empresas": 0,
+                      "empresas_ativas": 0,
+                      "empresas_suspensas": 0,
+                      "empresas_trial": 0,
+                      "mrr": 0,
+                      "licencas_ativas": 0
                     }
                   }
                 }
@@ -1893,6 +2000,25 @@
                       "type": "object"
                     }
                   }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {
+                      "pedidos_dia": 0,
+                      "pedidos_delta_percent": 0,
+                      "ticket_medio": 0,
+                      "mesas_ocupadas": 0,
+                      "total_mesas": 0,
+                      "entregas_rota": 0,
+                      "itens_cozinha": 0,
+                      "estoque_critico": 0,
+                      "faturamento_dia": 0,
+                      "meta_percent": 0,
+                      "cancelamentos": 0,
+                      "canais": {}
+                    }
+                  }
                 }
               }
             }
@@ -1920,6 +2046,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/Assinatura"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -1954,6 +2086,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Assinatura"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -1989,6 +2127,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Assinatura"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -2032,6 +2176,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Assinatura"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -2060,7 +2210,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -2085,6 +2248,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/Usuario"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -2119,6 +2288,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Usuario"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -2154,6 +2329,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Usuario"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -2197,6 +2378,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Usuario"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -2225,7 +2412,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -2250,6 +2450,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/Perfil"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -2284,6 +2490,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Perfil"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -2319,6 +2531,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Perfil"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -2362,6 +2580,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Perfil"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -2390,7 +2614,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -2415,6 +2652,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/Permissao"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -2449,6 +2692,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Permissao"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -2484,6 +2733,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Permissao"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -2527,6 +2782,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Permissao"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -2555,7 +2816,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -2580,6 +2854,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/UsuarioPerfil"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -2614,6 +2894,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/UsuarioPerfil"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -2649,6 +2935,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/UsuarioPerfil"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -2692,6 +2984,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/UsuarioPerfil"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -2720,7 +3018,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -2745,6 +3056,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/PerfilPermissao"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -2779,6 +3096,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PerfilPermissao"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -2814,6 +3137,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PerfilPermissao"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -2857,6 +3186,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PerfilPermissao"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -2885,7 +3220,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -2910,6 +3258,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/Categoria"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -2944,6 +3298,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Categoria"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -2979,6 +3339,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Categoria"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -3022,6 +3388,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Categoria"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -3050,7 +3422,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -3075,6 +3460,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/Produto"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -3109,6 +3500,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Produto"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -3144,6 +3541,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Produto"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -3187,6 +3590,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Produto"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -3215,7 +3624,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -3240,6 +3662,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/ProdutoImagem"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -3274,6 +3702,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProdutoImagem"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -3309,6 +3743,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProdutoImagem"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -3352,6 +3792,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProdutoImagem"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -3380,7 +3826,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -3405,6 +3864,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/ProdutoOpcao"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -3439,6 +3904,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProdutoOpcao"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -3474,6 +3945,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProdutoOpcao"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -3517,6 +3994,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProdutoOpcao"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -3545,7 +4028,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -3570,6 +4066,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/ProdutoOpcaoItem"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -3604,6 +4106,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProdutoOpcaoItem"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -3639,6 +4147,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProdutoOpcaoItem"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -3682,6 +4196,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProdutoOpcaoItem"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -3710,7 +4230,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -3735,6 +4268,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/Mesa"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -3769,6 +4308,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Mesa"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -3804,6 +4349,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Mesa"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -3847,6 +4398,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Mesa"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -3875,7 +4432,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -3941,6 +4511,12 @@
                       "updated_at": "2026-03-10 12:15:00"
                     }
                   ]
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -3968,6 +4544,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/Comanda"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -4002,6 +4584,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Comanda"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -4037,6 +4625,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Comanda"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -4080,6 +4674,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Comanda"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -4108,7 +4708,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -4133,6 +4746,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/Cliente"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -4167,6 +4786,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Cliente"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -4202,6 +4827,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Cliente"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -4245,6 +4876,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Cliente"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -4273,7 +4910,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -4298,6 +4948,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/ClienteEndereco"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -4332,6 +4988,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClienteEndereco"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -4367,6 +5029,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClienteEndereco"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -4410,6 +5078,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ClienteEndereco"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -4438,7 +5112,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -4463,6 +5150,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/Entregador"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -4497,6 +5190,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Entregador"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -4532,6 +5231,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Entregador"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -4575,6 +5280,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Entregador"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -4603,7 +5314,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -4628,6 +5352,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/Entrega"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -4662,6 +5392,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Entrega"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -4697,6 +5433,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Entrega"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -4740,6 +5482,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Entrega"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -4768,7 +5516,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -4793,6 +5554,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/Pedido"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -4827,6 +5594,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Pedido"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -4862,6 +5635,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Pedido"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -4905,6 +5684,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Pedido"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -4933,7 +5718,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -4958,6 +5756,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/PedidoItem"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -4992,6 +5796,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PedidoItem"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -5027,6 +5837,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PedidoItem"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -5070,6 +5886,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PedidoItem"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -5098,7 +5920,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -5123,6 +5958,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/PedidoItemOpcao"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -5157,6 +5998,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PedidoItemOpcao"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -5192,6 +6039,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PedidoItemOpcao"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -5235,6 +6088,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PedidoItemOpcao"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -5263,7 +6122,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -5288,6 +6160,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/CozinhaEstacao"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -5322,6 +6200,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CozinhaEstacao"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -5357,6 +6241,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CozinhaEstacao"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -5400,6 +6290,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CozinhaEstacao"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -5428,7 +6324,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -5453,6 +6362,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/CozinhaItem"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -5487,6 +6402,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CozinhaItem"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -5522,6 +6443,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CozinhaItem"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -5565,6 +6492,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CozinhaItem"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -5593,7 +6526,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -5721,7 +6667,13 @@
                       }
                     ]
                   }
-                ]
+                ],
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
+                  }
+                }
               }
             }
           }
@@ -5748,6 +6700,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/FormaPagamento"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -5782,6 +6740,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/FormaPagamento"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -5817,6 +6781,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/FormaPagamento"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -5860,6 +6830,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/FormaPagamento"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -5888,7 +6864,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -5913,6 +6902,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/Pagamento"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -5947,6 +6942,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Pagamento"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -5982,6 +6983,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Pagamento"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -6025,6 +7032,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Pagamento"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -6053,7 +7066,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -6078,6 +7104,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/Caixa"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -6112,6 +7144,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Caixa"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -6147,6 +7185,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Caixa"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -6190,6 +7234,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Caixa"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -6218,7 +7268,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -6243,6 +7306,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/CaixaMovimento"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -6277,6 +7346,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CaixaMovimento"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -6312,6 +7387,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CaixaMovimento"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -6355,6 +7436,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/CaixaMovimento"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -6383,7 +7470,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -6408,6 +7508,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/Estoque"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -6442,6 +7548,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Estoque"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -6477,6 +7589,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Estoque"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -6520,6 +7638,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Estoque"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -6548,7 +7672,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -6573,6 +7710,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/EstoqueMovimento"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -6607,6 +7750,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/EstoqueMovimento"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -6642,6 +7791,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/EstoqueMovimento"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -6685,6 +7840,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/EstoqueMovimento"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -6713,7 +7874,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -6738,6 +7912,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/Configuracao"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -6772,6 +7952,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Configuracao"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -6807,6 +7993,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Configuracao"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -6850,6 +8042,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Configuracao"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -6878,7 +8076,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -6903,6 +8114,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/Notificacao"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -6937,6 +8154,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Notificacao"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -6972,6 +8195,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Notificacao"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -7015,6 +8244,12 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Notificacao"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
                 }
               }
             }
@@ -7043,7 +8278,20 @@
         ],
         "responses": {
           "204": {
-            "description": "Sem conteudo"
+            "description": "Sem conteudo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -7087,7 +8335,20 @@
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -7130,7 +8391,20 @@
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -7167,7 +8441,20 @@
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -7212,7 +8499,20 @@
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -7240,7 +8540,20 @@
         },
         "responses": {
           "201": {
-            "description": "Criado"
+            "description": "Criado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -7278,7 +8591,20 @@
         },
         "responses": {
           "201": {
-            "description": "Criado"
+            "description": "Criado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -7324,7 +8650,20 @@
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -7370,7 +8709,20 @@
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -7398,7 +8750,20 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -7434,7 +8799,20 @@
         },
         "responses": {
           "201": {
-            "description": "Criado"
+            "description": "Criado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -7480,7 +8858,20 @@
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -7526,7 +8917,20 @@
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -7544,7 +8948,20 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -7562,7 +8979,20 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -7580,7 +9010,20 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -7598,7 +9041,20 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -7616,7 +9072,20 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -7634,7 +9103,20 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -7652,7 +9134,20 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -7670,7 +9165,20 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -7804,6 +9312,22 @@
                       "type": "boolean"
                     }
                   }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {
+                      "empresa": null,
+                      "plano": null,
+                      "assinatura": null,
+                      "usuario": null,
+                      "access_token": "",
+                      "token_type": "",
+                      "expires_in": 0,
+                      "limite_usuarios": 0,
+                      "email_enviado": false
+                    }
+                  }
                 }
               }
             }
@@ -7827,6 +9351,12 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/Plano"
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -7950,6 +9480,23 @@
                       "type": "string"
                     }
                   }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {
+                      "empresa": null,
+                      "plano": null,
+                      "assinatura": null,
+                      "usuario": null,
+                      "access_token": "",
+                      "token_type": "",
+                      "expires_in": 0,
+                      "limite_usuarios": 0,
+                      "email_enviado": false,
+                      "confirmacao_url": ""
+                    }
+                  }
                 }
               }
             }
@@ -7976,7 +9523,20 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
           },
           "404": {
             "description": "Token invalido"
@@ -8046,6 +9606,12 @@
                       }
                     }
                   }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
+                  }
                 }
               }
             }
@@ -8094,6 +9660,12 @@
                         "type": "integer"
                       }
                     }
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
                   }
                 }
               }
@@ -8158,6 +9730,12 @@
                       }
                     }
                   }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
+                  }
                 }
               }
             }
@@ -8216,6 +9794,497 @@
                         }
                       }
                     ]
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": []
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cozinha/indicadores": {
+      "get": {
+        "tags": [
+          "Cozinha"
+        ],
+        "summary": "Indicadores da cozinha",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "data",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "string",
+                      "format": "date"
+                    },
+                    "totais": {
+                      "type": "object",
+                      "properties": {
+                        "pedidos_dia": {
+                          "type": "integer"
+                        },
+                        "pedidos_preparo_dia": {
+                          "type": "integer"
+                        },
+                        "pedidos_prontos_dia": {
+                          "type": "integer"
+                        }
+                      }
+                    },
+                    "pedidos_em_preparo": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "pedidos_prontos": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {
+                      "data": "",
+                      "totais": {},
+                      "pedidos_em_preparo": [],
+                      "pedidos_prontos": []
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/relatorios/pagamentos-dashboard": {
+      "get": {
+        "tags": [
+          "Relatorios"
+        ],
+        "summary": "Dashboard de pagamentos",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "periodo",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "data",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "mes",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ano",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "data_inicio",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "data_fim",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "periodo": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string",
+                      "nullable": true
+                    },
+                    "intervalo": {
+                      "type": "object",
+                      "properties": {
+                        "inicio": {
+                          "type": "string",
+                          "format": "date"
+                        },
+                        "fim": {
+                          "type": "string",
+                          "format": "date"
+                        }
+                      }
+                    },
+                    "total_apurado": {
+                      "type": "number"
+                    },
+                    "total_pedidos": {
+                      "type": "integer"
+                    },
+                    "ticket_medio": {
+                      "type": "number"
+                    },
+                    "total_troco": {
+                      "type": "number"
+                    },
+                    "total_taxa_entrega": {
+                      "type": "number"
+                    },
+                    "serie_diaria": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "serie_diaria_por_forma": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "totais_por_forma_pagamento": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    },
+                    "pedidos": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {
+                      "periodo": "",
+                      "status": "",
+                      "intervalo": {},
+                      "total_apurado": 0,
+                      "total_pedidos": 0,
+                      "ticket_medio": 0,
+                      "total_troco": 0,
+                      "total_taxa_entrega": 0,
+                      "serie_diaria": [],
+                      "serie_diaria_por_forma": [],
+                      "totais_por_forma_pagamento": [],
+                      "pedidos": []
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/relatorios/pagamentos-dashboard/export": {
+      "get": {
+        "tags": [
+          "Relatorios"
+        ],
+        "summary": "Exportacao do dashboard de pagamentos",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "periodo",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "data",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "mes",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ano",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "data_inicio",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "data_fim",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "formato",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Arquivo CSV/Excel",
+            "content": {
+              "text/csv": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/relatorios/analiticos/{codigo}": {
+      "get": {
+        "tags": [
+          "Relatorios"
+        ],
+        "summary": "Relatorios analiticos R01-R40",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "codigo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tipo_filtro",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tipo_agrupamento",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dia_ref",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "ano_ref",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "mes_ref",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "semana_ref",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "data_inicio",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "data_fim",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "X-Empresa-Id",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "codigo": {
+                      "type": "string"
+                    },
+                    "parametros": {
+                      "type": "object"
+                    },
+                    "dados": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "Success": {
+                    "summary": "Exemplo de resposta",
+                    "value": {
+                      "codigo": "",
+                      "parametros": {},
+                      "dados": []
+                    }
                   }
                 }
               }
